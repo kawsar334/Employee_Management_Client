@@ -1,0 +1,376 @@
+[
+  {
+    "product_id": "P001",
+    "product_title": "Apple iPhone 15 Pro Max",
+    "product_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTer83bBxodUVGnScfnCqQTuRZfx1paEyCAKA&s",
+    "category": "iPhone",
+    "price": 1299,
+    "description": "Experience the ultimate smartphone with the iPhone 15 Pro Max.",
+    "specification": [
+      "6.7-inch Super Retina XDR display",
+      "A17 Bionic chip",
+      "Triple-camera system (48MP Main, 12MP Telephoto, 12MP Ultrawide)",
+      "LiDAR Scanner",
+      "Up to 2TB storage"
+    ],
+    "availability": true,
+    "rating": 4.8
+  },
+  {
+    "product_id": "P002",
+    "product_title": "Samsung Galaxy S23 Ultra",
+    "product_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTer83bBxodUVGnScfnCqQTuRZfx1paEyCAKA&s",
+    "category": "phone",
+    "price": 1199,
+    "description": "Capture incredible detail and clarity with the Samsung Galaxy S23 Ultra.",
+    "specification": [
+      "6.8-inch Dynamic AMOLED 2X display",
+      "Snapdragon 8 Gen 2",
+      "Quad-camera system (200MP Main, 12MP Ultrawide, 10MP Telephoto)",
+      "5000mAh battery",
+      "1TB storage option"
+    ],
+    "availability": true,
+    "rating": 4.7
+  },
+    {
+      "product_id": "P021",
+      "product_title": "Samsung Galaxy S23 Ultra",
+      "product_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfJMWoIZ3RL-eI7g6dQGeFFrQft8oYd-B2RQ&s",
+      "category": "phone",
+      "price": 1199,
+      "description": "Capture incredible detail and clarity with the Samsung Galaxy S23 Ultra.",
+      "specification": [
+        "6.8-inch Dynamic AMOLED 2X display",
+        "Snapdragon 8 Gen 2",
+        "Quad-camera system (200MP Main, 12MP Ultrawide, 10MP Telephoto)",
+        "5000mAh battery",
+        "1TB storage option"
+      ],
+      "availability": true,
+      "rating": 4.7
+    },
+  {
+    "product_id": "P003",
+    "product_title": "Dell XPS 13",
+    "product_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoCEgs7ZztVA68m-ll1INcUaRu45I8qQIhyQ&s",
+    "category": "laptop",
+    "price": 1099,
+    "description": "Elegant design meets high performance with the Dell XPS 13.",
+    "specification": [
+      "13.4-inch FHD+ display",
+      "Intel Core i7 processor",
+      "16GB RAM",
+      "512GB SSD",
+      "Intel Iris Xe graphics"
+    ],
+    "availability": true,
+    "rating": 4.5
+  },
+  {
+    "product_id": "P004",
+    "product_title": "Apple MacBook Pro 14-inch",
+    "product_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZEz_ZwG6zX8IlEE3uy_CZSLgM1FpJJXdQpQ&s",
+    "category": "MacBook",
+    "price": 1999,
+    "description": "Powerful performance with Apple's M2 Pro chip on the 14-inch MacBook Pro.",
+    "specification": [
+      "14-inch Liquid Retina XDR display",
+      "M2 Pro chip",
+      "16GB RAM",
+      "512GB SSD",
+      "Thunderbolt 4 ports"
+    ],
+    "availability": true,
+    "rating": 4.9
+  },
+  {
+    "product_id": "P022",
+    "product_title": "Apple MacBook Pro 14-inch",
+    "product_image": "https://m.media-amazon.com/images/I/41yLHpZq2xL.jpg",
+    "category": "MacBook",
+    "price": 1999,
+    "description": "Powerful performance with Apple's M2 Pro chip on the 14-inch MacBook Pro.",
+    "specification": [
+      "14-inch Liquid Retina XDR display",
+      "M2 Pro chip",
+      "16GB RAM",
+      "512GB SSD",
+      "Thunderbolt 4 ports"
+    ],
+    "availability": true,
+    "rating": 4.9
+  },
+  {
+    "product_id": "P005",
+    "product_title": "Apple Watch Series 8",
+    "product_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRctK67-_E_bKLFwqXVy3l2l_xHT6pLQgyn3Q&s",
+    "category": "Smart Watches",
+    "price": 399,
+    "description": "Stay connected with the stylish and advanced Apple Watch Series 8.",
+    "specification": [
+      "Always-On Retina display",
+      "Health and fitness tracking",
+      "Swimproof design",
+      "GPS and Cellular options",
+      "Fast charging"
+    ],
+    "availability": true,
+    "rating": 4.6
+  },
+  {
+    "product_id": "P006",
+    "product_title": "Sony WH-1000XM5 Wireless Headphones",
+    "product_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCWZ8bWKa-R37B2l9rsQQV588FTdGaTIMJtQ&s",
+    "category": "accessories",
+    "price": 399,
+    "description": "Immerse yourself in sound with the industry-leading Sony WH-1000XM5 headphones.",
+    "specification": [
+      "Noise cancellation",
+      "30 hours of battery life",
+      "Touch controls",
+      "Bluetooth 5.2",
+      "Foldable design"
+    ],
+    "availability": true,
+    "rating": 4.6
+  },
+  {
+    "product_id": "P007",
+    "product_title": "Logitech MX Master 3S Mouse",
+    "product_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlnHV5PG1d8bL9nrs42sn7f6Ww-ktIc7cgVQ&s",
+    "category": "accessories",
+    "price": 99,
+    "description": "Precision and comfort with the Logitech MX Master 3S wireless mouse.",
+    "specification": [
+      "Ergonomic design",
+      "Customizable buttons",
+      "4000 DPI sensor",
+      "Bluetooth and USB connectivity",
+      "70-day battery life"
+    ],
+    "availability": true,
+    "rating": 4.8
+  },
+  {
+    "product_id": "P008",
+    "product_title": "Apple MacBook Air 13-inch",
+    "product_image": "https://alephksa.com/cdn/shop/files/MacBook_Air_13_in_M3_Silver_PDP_Image_Position_1__en-AE.jpg?v=1709593750&width=1445",
+    "category": "MacBook",
+    "price": 999,
+    "description": "Lightweight and powerful, the MacBook Air is perfect for everyday use.",
+    "specification": [
+      "13-inch Retina display",
+      "M1 chip",
+      "8GB RAM",
+      "256GB SSD",
+      "All-day battery life"
+    ],
+    "availability": true,
+    "rating": 4.7
+  },
+  {
+    "product_id": "P009",
+    "product_title": "Samsung Galaxy Watch 5",
+    "product_image": "https://m.media-amazon.com/images/I/61wT3iz3XnL.jpg",
+    "category": "Smart Watches",
+    "price": 279,
+    "description": "Track your health and fitness with the Samsung Galaxy Watch 5.",
+    "specification": [
+      "Super AMOLED display",
+      "Advanced health monitoring",
+      "Sleep tracking",
+      "Water resistant",
+      "Customizable watch faces"
+    ],
+    "availability": true,
+    "rating": 4.5
+  },
+  {
+    "product_id": "P010",
+    "product_title": "Bose QuietComfort Earbuds II",
+    "product_image": "https://i.rtings.com/assets/products/AQze2J9H/bose-quietcomfort-earbuds-ii-truly-wireless/design-medium.jpg?format=auto",
+    "category": "accessories",
+    "price": 299,
+    "description": "Unmatched noise cancellation with the Bose QuietComfort Earbuds II.",
+    "specification": [
+      "Noise-cancelling",
+      "Up to 6 hours per charge",
+      "IPX4 water resistance",
+      "Bluetooth 5.3",
+      "StayHear Max tips"
+    ],
+    "availability": true,
+    "rating": 4.7
+  },
+  {
+    "product_id": "P011",
+    "product_title": "Apple iPhone SE (3rd Generation)",
+    "product_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShhyc9hh_kgJcpOSpa5fFj5AUnKLpm4ff71g&s",
+    "category": "iPhone",
+    "price": 429,
+    "description": "The compact and powerful iPhone SE with advanced features.",
+    "specification": [
+      "4.7-inch Retina HD display",
+      "A15 Bionic chip",
+      "12MP camera with Portrait mode",
+      "Water and dust resistant",
+      "5G capable"
+    ],
+    "availability": true,
+    "rating": 4.6
+  },
+  {
+    "product_id": "P012",
+    "product_title": "HP Spectre x360",
+    "product_image": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-se-2022.jpg",
+    "category": "laptop",
+    "price": 1499,
+    "description": "A premium convertible laptop with stunning design and performance.",
+    "specification": [
+      "13.3-inch 4K OLED display",
+      "Intel Core i7 processor",
+      "16GB RAM",
+      "1TB SSD",
+      "360-degree hinge"
+    ],
+    "availability": true,
+    "rating": 4.8
+  },
+  {
+    "product_id": "P013",
+    "product_title": "Fitbit Versa 3",
+    "product_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQm_chSfhWs-lKtnwTF1CL2WTuI5_orWqvvsA&s",
+    "category": "Smart Watches",
+    "price": 229,
+    "description": "Track your fitness and health with the versatile Fitbit Versa 3.",
+    "specification": [
+      "Built-in GPS",
+      "24/7 heart rate monitoring",
+      "Voice assistant compatibility",
+      "6+ days of battery life",
+      "Music storage"
+    ],
+    "availability": true,
+    "rating": 4.4
+  },
+  {
+    "product_id": "P014",
+    "product_title": "Razer Blade 15",
+    "product_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTHcHVpvtQtWsHHIeMNxwxeYp_yd5kN_as7w&s",
+    "category": "laptop",
+    "price": 1999,
+    "description": "A powerful gaming laptop designed for serious gamers.",
+    "specification": [
+      "15.6-inch Full HD display",
+      "Intel Core i7 processor",
+      "16GB RAM",
+      "1TB SSD",
+      "NVIDIA GeForce RTX 3070"
+    ],
+    "availability": true,
+    "rating": 4.9
+  },
+  {
+    "product_id": "P015",
+    "product_title": "Oculus Quest 2",
+    "product_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjLr4CtWE4vIhXGiQK65DFPzwG2cUzZqw7sw&s",
+    "category": "accessories",
+    "price": 299,
+    "description": "The ultimate VR experience with Oculus Quest 2.",
+    "specification": [
+      "All-in-one VR headset",
+      "120Hz refresh rate",
+      "64GB storage",
+      "Hand tracking",
+      "Wireless freedom"
+    ],
+    "availability": true,
+    "rating": 4.7
+  },
+  {
+    "product_id": "P016",
+    "product_title": "Apple iPhone 14",
+    "product_image": "https://m.media-amazon.com/images/I/61cwywLZR-L._AC_UF1000,1000_QL80_.jpg",
+    "category": "iPhone",
+    "price": 799,
+    "description": "Experience innovation with the Apple iPhone 14.",
+    "specification": [
+      "6.1-inch Super Retina XDR display",
+      "A15 Bionic chip",
+      "Dual-camera system (12MP Wide, 12MP Ultrawide)",
+      "Ceramic Shield front",
+      "5G capable"
+    ],
+    "availability": true,
+    "rating": 4.6
+  },
+  {
+    "product_id": "P017",
+    "product_title": "Asus ZenBook 14",
+    "product_image": "https://m.media-amazon.com/images/I/81DkONvgRVL._AC_UF894,1000_QL80_.jpg",
+    "category": "laptop",
+    "price": 899,
+    "description": "Sleek and powerful, the Asus ZenBook 14 is perfect for professionals.",
+    "specification": [
+      "14-inch FHD display",
+      "Intel Core i5 processor",
+      "8GB RAM",
+      "512GB SSD",
+      "Lightweight and portable"
+    ],
+    "availability": true,
+    "rating": 4.5
+  },
+  {
+    "product_id": "P018",
+    "product_title": "Garmin Forerunner 245",
+    "product_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXuTZzsHxEHlSFnSoif1_oSpfdFvJbXnLx7g&s",
+    "category": "Smart Watches",
+    "price": 349,
+    "description": "Designed for runners, the Garmin Forerunner 245 tracks your performance.",
+    "specification": [
+      "GPS tracking",
+      "Music storage",
+      "Heart rate monitoring",
+      "Advanced performance metrics",
+      "Up to 7 days battery life"
+    ],
+    "availability": true,
+    "rating": 4.6
+  },
+  {
+    "product_id": "P019",
+    "product_title": "OnePlus Nord 2",
+    "product_image": "https://oasis.opstatics.com/content/dam/oasis/page/2021/ebba/spec/nord2_Blue_Haze.png",
+    "category": "phone",
+    "price": 499,
+    "description": "A powerful mid-range smartphone with great performance.",
+    "specification": [
+      "6.43-inch Fluid AMOLED display",
+      "MediaTek Dimensity 1200 processor",
+      "50MP triple-camera system",
+      "4500mAh battery",
+      "65W fast charging"
+    ],
+    "availability": true,
+    "rating": 4.4
+  },
+  {
+    "product_id": "P020",
+    "product_title": "Bose SoundLink Revolve+",
+    "product_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQOwhTB_TcOxW4Ts78uPGAyn3ovgJFC-JIfQ&s",
+    "category": "accessories",
+    "price": 329,
+    "description": "360-degree sound with the portable Bose SoundLink Revolve+ speaker.",
+    "specification": [
+      "Up to 17 hours of battery life",
+      "Water resistant",
+      "Bluetooth connectivity",
+      "Voice prompts for easy pairing",
+      "Durable design"
+    ],
+    "availability": true,
+    "rating": 4.5
+  }
+]

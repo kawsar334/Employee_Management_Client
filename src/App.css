@@ -1,0 +1,19 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+.parrent{
+     transition: all 1s ease !important;
+}
+.parrent:hover .children{
+    display: flex;
+    transition: all 1s ease  !important;
+}
+.children{
+    transition: all 1s ease  !important;
+
+
+}

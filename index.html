@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon-16x16.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Language Exchange</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  </head>
+  <style>
+  body {
+    font-family: 'Sora', sans-serif;
+  }
+  </style>
+  <style>
+    .neumorphic-button {
+      @apply px-6 py-3 rounded-lg bg-gray-200 font-semibold text-gray-700 transition transform duration-200;
+      /* Shadow for the light highlight (top-left) */
+      box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.15), -6px -6px 12px rgba(255, 255, 255, 0.7);
+    }
+  
+    .neumorphic-button:hover {
+      @apply scale-105;
+      /* Darker shadow for a "pressed" look */
+      box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.2), inset -4px -4px 8px rgba(255, 255, 255, 0.6);
+    }
+  
+    .neumorphic-button:active {
+      @apply scale-95;
+      /* Enhanced inset shadow for click effect */
+      box-shadow: inset 6px 6px 10px rgba(0, 0, 0, 0.25), inset -6px -6px 10px rgba(255, 255, 255, 0.5);
+    }
+
+
+   body{
+    overflow-x: hidden;
+   }
+  </style>
+
+  <body >
+    <div id="root" ></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

@@ -1,0 +1,102 @@
+[
+    {
+        "itemName": "Cricket Bat",
+        "categoryName": "Cricket",
+        "description": "High-quality English willow cricket bat for professional players.",
+        "price": 120.99,
+        "rating": 4.8,
+        "customization": "Extra grip available",
+        "processingTime": "3-5 business days",
+        "stockStatus": 25
+    },
+    {
+        "itemName": "Soccer Ball",
+        "categoryName": "Football",
+        "description": "FIFA-approved size 5 soccer ball for match play.",
+        "price": 29.99,
+        "rating": 4.6,
+        "customization": "Logo printing available",
+        "processingTime": "2-4 business days",
+        "stockStatus": 40
+    },
+    {
+        "itemName": "Tennis Racket",
+        "categoryName": "Tennis",
+        "description": "Lightweight graphite racket with a comfortable grip.",
+        "price": 79.99,
+        "rating": 4.7,
+        "customization": "String tension adjustment",
+        "processingTime": "5-7 business days",
+        "stockStatus": 18
+    },
+    {
+        "itemName": "Basketball",
+        "categoryName": "Basketball",
+        "description": "Durable rubber basketball for indoor and outdoor use.",
+        "price": 24.99,
+        "rating": 4.5,
+        "customization": "Team logo printing",
+        "processingTime": "3-5 business days",
+        "stockStatus": 50
+    },
+    {
+        "itemName": "Badminton Shuttlecock",
+        "categoryName": "Badminton",
+        "description": "Feather shuttlecocks for tournament-level play.",
+        "price": 15.99,
+        "rating": 4.3,
+        "customization": "Custom packaging available",
+        "processingTime": "1-3 business days",
+        "stockStatus": 100
+    },
+    {
+        "itemName": "Hockey Stick",
+        "categoryName": "Hockey",
+        "description": "Carbon fiber stick for professional field hockey players.",
+        "price": 99.99,
+        "rating": 4.7,
+        "customization": "Grip tape options",
+        "processingTime": "4-6 business days",
+        "stockStatus": 12
+    },
+    {
+        "itemName": "Table Tennis Paddle",
+        "categoryName": "Table Tennis",
+        "description": "High-performance paddle with ergonomic handle.",
+        "price": 34.99,
+        "rating": 4.5,
+        "customization": "Rubber color options",
+        "processingTime": "2-4 business days",
+        "stockStatus": 30
+    },
+    {
+        "itemName": "Running Shoes",
+        "categoryName": "Athletics",
+        "description": "Lightweight and durable running shoes for marathon training.",
+        "price": 89.99,
+        "rating": 4.8,
+        "customization": "Personalized name engraving",
+        "processingTime": "5-7 business days",
+        "stockStatus": 20
+    },
+    {
+        "itemName": "Yoga Mat",
+        "categoryName": "Fitness",
+        "description": "Non-slip yoga mat with extra cushioning for comfort.",
+        "price": 19.99,
+        "rating": 4.6,
+        "customization": "Color and logo printing",
+        "processingTime": "2-3 business days",
+        "stockStatus": 45
+    },
+    {
+        "itemName": "Boxing Gloves",
+        "categoryName": "Boxing",
+        "description": "Premium leather gloves with padded knuckles for safety.",
+        "price": 49.99,
+        "rating": 4.7,
+        "customization": "Custom size and color",
+        "processingTime": "3-5 business days",
+        "stockStatus": 15
+    }
+]
