@@ -14,7 +14,8 @@ export default {
         tc: "#d35400",
         main: "#222429",
         textcolor: "#efb90b",
-        teal:"#89c74a"
+        teal:"#89c74a",
+       main:"#febd18"
 
       }
     },

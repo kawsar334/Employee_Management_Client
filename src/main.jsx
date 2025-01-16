@@ -7,11 +7,12 @@ import App from './App.jsx';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AuthProviders from './context/AuthProviders.jsx';
-import ThemeProvider from './ThemeProvider.jsx';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import store from './redux/store.js';
 import { Provider } from 'react-redux';
+import ThemeProvider from './context/ThemeProvider.jsx';
+
 
 
 

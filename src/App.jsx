@@ -5,22 +5,36 @@ import './App.css';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 
-import NotFoundPage from './pages/Notfound';
-import Layout from './pages/userLayout/Layout';
-import Home from './pages/userLayout/Home';
-import Login from './pages/userLayout/Login';
-import Register from './pages/userLayout/Registe';
-import ContactUs from './pages/Contact';
+import NotFoundPage from './pages/publicLayout/Notfound';
+import Layout from './pages/publicLayout/Layout';
+import Home from './pages/publicLayout/Home';
+import Login from './pages/publicLayout/Login';
+import Register from './pages/publicLayout/Registe';
+import ContactUs from './pages/publicLayout/Contact';
 import WorkSheet from './pages/userLayout/EmployeeWorkSheet';
 import PaymentHistory from './pages/userLayout/PaymentHistory';
 import UserDashboard from './pages/userLayout/UserDashboard';
+import AdminDashboard from './pages/addminlayout/AdminDashboard';
+import HrDashboard from './pages/hrLayout/HrDashboard';
+import ProtectedRoute from './essentialRoutes/ProtectedRoute';
+import UserRole from './essentialRoutes/UserRole';
+import EmployeeListForHr from './pages/hrLayout/EmployeeListForHr';
+import EmployeeDetails from './pages/hrLayout/EmployeeSolug';
+import Reports from './pages/addminlayout/Reports';
+import Payroll from './pages/addminlayout/Payrolls';
 
 
 
 
 function App() {
+  const {
+    userRole,
+    error,
+  } = UserRole();
+ 
 
-  
+ 
+ 
   const router = createBrowserRouter([
     {
       path: "/",
@@ -31,30 +45,54 @@ function App() {
         {
           path: "/",
           element: (
-         
+        //  <ProtectedRoute>
+          
               <Home />
+
+    
 
           ),
         },
-
         {
-          path: "/userdashboard",
+          path: "/dashboard",
           element: (
-            <UserDashboard />
+            userRole === "admin" ? <AdminDashboard /> : userRole === "hr" ? <HrDashboard /> : <UserDashboard />
+          ),
+           
+        },
+        {
+          path: "/admin/reports",
+          element: (
+            <Reports />
           )
 
 
         },
-        {
-          path: "/contact",
-          element: (
-            <ContactUs />
-          )
 
-          
+       
+        {
+          path: "/hremployeelist",
+          element: (
+            <EmployeeListForHr/>
+          )
         },
 
         {
+          path: "/payroll",
+          element: (
+            <Payroll />
+          )
+        },
+        {
+          path: "/analytics",
+          element: (
+            <PaymentHistory />
+          )
+        },
+
+
+        {
+          // for employee
           path: "/worksheet",
           element: (
             <WorkSheet />
@@ -62,10 +100,20 @@ function App() {
         },
 
         {
-          path: "/paymenthistoroy",
+            path:"/employedetails/:id",
+           element:(
+           <EmployeeDetails/>
+           )
+        },
+
+        // public routes
+        {
+          path: "/contact",
           element: (
-            <PaymentHistory />
+            <ContactUs />
           )
+
+
         },
 
         {
@@ -90,6 +138,8 @@ function App() {
           <NotFoundPage />
       ),
     },
+
+   
 
   ]);
 

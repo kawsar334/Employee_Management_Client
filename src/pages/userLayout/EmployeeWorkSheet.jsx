@@ -1,57 +1,68 @@
+
+
+
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import Modal from 'react-modal';
 
-const WorkSheet = () => {
-    const [tasks, setTasks] = useState([
-        { id: 1, task: 'Sales', hours: 5, date: new Date() },
-        { id: 2, task: 'Support', hours: 3, date: new Date() },
-    ]);
-    const [newTask, setNewTask] = useState({ task: 'Sales', hours: '', date: new Date() });
+const App = () => {
+    const [modalData, setModalData] = useState(null);
+    const [tasks, setTasks] = useState([]);
+    const [form, setForm] = useState({
+        task: 'Sales',
+        hoursWorked: '',
+        date: new Date(),
+    });
 
-    // Handle form input changes
-    const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setNewTask({ ...newTask, [name]: value });
+    useEffect(() => {
+        axios
+            .get('http://localhost:7000/api/work/workList', { withCredentials: 'include' })
+            .then((res) => setTasks(res.data?.data))
+            .catch((err) => console.error(err));
+    }, []);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        axios
+            .post('http://localhost:7000/api/work/creatework', form, { withCredentials: 'include' })
+            .then((res) => setTasks([res?.data?.data, ...tasks]))
+            .catch((err) => console.error(err));
     };
 
-    // Handle date change
-    const handleDateChange = (date) => {
-        setNewTask({ ...newTask, date });
+    const handleEdit = (task) => {
+        setModalData(task);
     };
 
-    // Add/Submit Task
-    const handleAddTask = () => {
-        const taskToAdd = { ...newTask, id: Date.now() }; // Add unique ID
-        setTasks([taskToAdd, ...tasks]); // Optimistic UI update
-
-        console.log('Task added:', taskToAdd);
+    const handleUpdate = () => {
+        axios
+            .put(`http://localhost:7000/api/work/${modalData._id}`, modalData, { withCredentials: 'include' })
+            .then((res) => {
+                setTasks(tasks.map((task) => (task._id === res?.data?.data._id ? res?.data?.data : task)));
+                setModalData(null);
+            })
+            .catch((err) => console.error(err));
     };
 
-    // Delete Task
     const handleDelete = (id) => {
-        setTasks(tasks.filter(task => task.id !== id));
-        // Remove from database (API call)
-        console.log('Task deleted:', id);
-    };
-
-    // Edit Task
-    const handleEdit = (id) => {
-        const taskToEdit = tasks.find(task => task.id === id);
-        // Logic to open form pre-filled with the task to edit
-        console.log('Task to edit:', taskToEdit);
+        axios
+            .delete(`http://localhost:7000/api/work/${id}`, { withCredentials: 'include' })
+            .then(() => setTasks(tasks.filter((task) => task._id !== id)))
+            .catch((err) => console.error(err));
     };
 
     return (
-        <div className="worksheet p-6">
-            <h1 className="text-2xl font-bold mb-4">employee dashboard Work Sheet</h1>
-            {/* Form */}
-            <div className="form flex gap-4 items-center mb-6">
+        <div className="p-6 sm:p-10 bg-gray-100 min-h-screen">
+            <h1 className="text-2xl font-semibold text-gray-700 mb-6">Work Sheet</h1>
+            <form
+                onSubmit={handleSubmit}
+                className="bg-white p-4 rounded-lg shadow-md flex flex-wrap gap-4 items-center"
+            >
                 <select
-                    name="task"
-                    value={newTask.task}
-                    onChange={handleInputChange}
-                    className="border p-2 rounded"
+                    value={form.task}
+                    onChange={(e) => setForm({ ...form, task: e.target.value })}
+                    className="w-full sm:w-auto p-2 border rounded-md"
                 >
                     <option value="Sales">Sales</option>
                     <option value="Support">Support</option>
@@ -60,61 +71,109 @@ const WorkSheet = () => {
                 </select>
                 <input
                     type="number"
-                    name="hours"
-                    value={newTask.hours}
-                    onChange={handleInputChange}
                     placeholder="Hours Worked"
-                    className="border p-2 rounded w-20"
+                    value={form.hoursWorked}
+                    onChange={(e) => setForm({ ...form, hoursWorked: e.target.value })}
+                    className="w-full sm:w-auto p-2 border rounded-md"
                 />
                 <DatePicker
-                    selected={newTask.date}
-                    onChange={handleDateChange}
-                    className="border p-2 rounded"
+                    selected={form.date}
+                    onChange={(date) => setForm({ ...form, date })}
+                    className="w-full sm:w-auto p-2 border rounded-md"
                 />
-                <button
-                    onClick={handleAddTask}
-                    className="bg-blue-500 text-white px-4 py-2 rounded"
-                >
+                <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded-md">
                     Add / Submit
                 </button>
-            </div>
+            </form>
 
-            {/* Table */}
-            <table className="w-full border-collapse border border-gray-300">
-                <thead>
-                    <tr className="bg-gray-100">
-                        <th className="border p-2">Task</th>
-                        <th className="border p-2">Hours Worked</th>
-                        <th className="border p-2">Date</th>
-                        <th className="border p-2">Actions</th>
+            <table className="w-full mt-6 bg-white shadow-md rounded-lg overflow-hidden">
+                <thead className="bg-blue-500 text-white">
+                    <tr>
+                        <th className="p-3">Task</th>
+                        <th className="p-3">Hours Worked</th>
+                        <th className="p-3">Date</th>
+                        <th className="p-3">Edit</th>
+                        <th className="p-3">Delete</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {tasks.map(task => (
-                        <tr key={task.id} className="text-center">
-                            <td className="border p-2">{task.task}</td>
-                            <td className="border p-2">{task.hours}</td>
-                            <td className="border p-2">{task.date.toLocaleDateString()}</td>
-                            <td className="border p-2">
-                                <button
-                                    onClick={() => handleEdit(task.id)}
-                                    className="bg-yellow-500 text-white px-2 py-1 rounded mr-2"
-                                >
-                                    Edit
-                                </button>
-                                <button
-                                    onClick={() => handleDelete(task.id)}
-                                    className="bg-red-500 text-white px-2 py-1 rounded"
-                                >
-                                    Delete
-                                </button>
-                            </td>
-                        </tr>
-                    ))}
+                    {tasks.length > 0 &&
+                        tasks.map((task) => (
+                            <tr key={task?._id} className="border-t">
+                                <td className="p-3">{task?.task}</td>
+                                <td className="p-3">{task?.hoursWorked}</td>
+                                <td className="p-3">{new Date(task.date).toLocaleDateString()}</td>
+                                <td className="p-3 text-center">
+                                    <button
+                                        onClick={() => handleEdit(task)}
+                                        className="text-blue-500 hover:underline"
+                                    >
+                                        Edit
+                                    </button>
+                                </td>
+                                <td className="p-3 text-center">
+                                    <button
+                                        onClick={() => handleDelete(task._id)}
+                                        className="text-red-500 hover:underline"
+                                    >
+                                        Delete
+                                    </button>
+                                </td>
+                            </tr>
+                        ))}
                 </tbody>
             </table>
+
+            {modalData && (
+                <Modal
+                    isOpen
+                    onRequestClose={() => setModalData(null)}
+                    className="bg-white border p-6 rounded-lg shadow max-w-lg mx-auto mt-[100px]"
+                >
+                    <h2 className="text-xl font-semibold mb-4">Edit Task</h2>
+                    <form>
+                        <select
+                            value={modalData.task}
+                            onChange={(e) => setModalData({ ...modalData, task: e.target.value })}
+                            className="w-full p-2 border rounded-md mb-4"
+                        >
+                            <option value="Sales">Sales</option>
+                            <option value="Support">Support</option>
+                            <option value="Content">Content</option>
+                            <option value="Paper-work">Paper-work</option>
+                        </select>
+                        <input
+                            type="number"
+                            value={modalData.hoursWorked}
+                            onChange={(e) => setModalData({ ...modalData, hoursWorked: e.target.value })}
+                            className="w-full p-2 border rounded-md mb-4"
+                        />
+                        <DatePicker
+                            selected={new Date(modalData.date)}
+                            onChange={(date) => setModalData({ ...modalData, date })}
+                            className="w-full p-2 border rounded-md mb-4"
+                        />
+                        <div className="flex justify-end gap-2">
+                            <button
+                                type="button"
+                                onClick={handleUpdate}
+                                className="bg-blue-500 text-white px-4 py-2 rounded-md"
+                            >
+                                Update
+                            </button>
+                            <button
+                                type="button"
+                                onClick={() => setModalData(null)}
+                                className="bg-gray-500 text-white px-4 py-2 rounded-md"
+                            >
+                                Close
+                            </button>
+                        </div>
+                    </form>
+                </Modal>
+            )}
         </div>
     );
 };
 
-export default WorkSheet;
+export default App;

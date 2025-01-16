@@ -1,58 +1,47 @@
 
-// import React, { useEffect } from 'react';
-// import axios from 'axios';
-// import Banner from '../../components/banner/Banner';
-// import Categories from '../../components/categories/Categories';
-// import { useQuery } from '@tanstack/react-query';
-// import Loader from '../../components/Loader';
-
-// const fetchProduct = async () => {
-//   const { data, } = await axios.get('https://server-anud.vercel.app/api/product/productList'); 
-//   return data;
-// };
-
-
-// const Home = () => {
-
- 
-//   const { data, isLoading, error } = useQuery({
-//     queryKey: ['product'], 
-//     queryFn: fetchProduct,
-//     staleTime: 1000 * 60 * 5, 
-//     cacheTime: 1000 * 60 * 10, 
-//   });
-
-//   if (isLoading) return <Loader/>;
-//   if (error) return <p className="text-center text-red-500"> {error.message}</p>;
-
- 
-//   return (
-//     <div>
-//       <Banner />
-//       <Categories products={data?.data} />
-
-//     </div>
-//   );
-// };
-
-// export default Home;
-
-
-import React from 'react';
+import React, { useEffect } from 'react';
 import Banner from '../../components/banner/Banner';
 import Services from '../../components/services/Services';
 import Testimonials from '../../components/testimonials/Testimonials';
 import AboutUs from '../../components/AboutUs/AboutUs';
 import CallToAction from '../../CallToAction/CallToAction';
+import { toast } from 'react-toastify';
 
 const Home = ({ user }) => {
+
+
+  
+
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const response = await fetch('http://localhost:7000/api/user/userList', {
+          method: 'GET', 
+          credentials: 'include',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+    
+      } catch (err) {
+        // toast.error("error on home page")
+        console.error('Error fetching data:', err);
+      }
+    };
+
+    // getData();
+  }, []);
 
   const role = "admin"
   return (
     <div>
       <Banner/>
-      
-      {/* Services Section */}
+
       
       <Services/>
 

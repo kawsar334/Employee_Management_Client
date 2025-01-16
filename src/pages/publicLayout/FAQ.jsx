@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { ThemeContext } from "./ThemeProvider";
+import { ThemeContext } from "../../context/ThemeProvider";
 
 const FAQ = () => {
 

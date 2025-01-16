@@ -27,9 +27,8 @@ const AuthProviders = ({ children }) => {
   }, []);
 
 
-  // 
- 
-  const createUser = async (email, password, name, photoURL, navigate) => {
+  // create user /register  
+  const createUser = async (email, password, name, photoURL,role, navigate) => {
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       try {
@@ -48,10 +47,11 @@ const AuthProviders = ({ children }) => {
         email: userCredential?.user?.email,
         photoURL: photoURL,
         password, 
+        role
       };
 
       try {
-        const response = await fetch("https://server-wheat-xi.vercel.app/users", {
+        const response = await fetch("http://localhost:7000/api/auth/register", {
           method: "post" ,
           headers: {
             "Content-Type": "application/json",
@@ -61,10 +61,13 @@ const AuthProviders = ({ children }) => {
         });
 
       const data =  await response.json();
-        setUser(data?.user)
+        console.log(data?.data)
+        setUser(data?.data)
         if (response.ok) {
           Swal.fire("Registration successful ");
-          navigate("/");
+          navigate("/dashboard");
+
+          window.location.reload();
         } else {
           toast.error("Something went wrong with the backend!");
           navigate("/register");
@@ -83,13 +86,21 @@ const AuthProviders = ({ children }) => {
       navigate("/register");
     }
   };
-
-
-  const signInUser = (email, password) => {
+// signin user 
+  const signInUser = async (email, password) => {
     setLoading(true);
-    return signInWithEmailAndPassword(auth, email, password);
-  }
- 
+    try {
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      return userCredential; 
+    } catch (error) {
+      console.error('Error during sign-in:', error);
+
+      toast.error(error.message || 'Failed to sign in. Please try again.');
+      throw error; 
+    } finally {
+      setLoading(false); 
+    }
+  };
 
 
   const signOutUser = async () => {
@@ -106,22 +117,19 @@ const AuthProviders = ({ children }) => {
 
     if (result.isConfirmed) {
       try {
-        const response = await fetch(`https://server-wheat-xi.vercel.app/logout`, {
+        const response = await fetch(`http://localhost:7000/api/auth/logout`, {
           method: "POST",
           credentials: "include",
         });
-
-        const data = await response.json();
-       
-
+        const data = await response.json();      
         if (response.ok) {
           await signOut(auth); 
           setUser(null);
           Swal.fire("Signed Out!", "You have been signed out successfully.", "success");
 
           setTimeout(() => {
-            
-            window.location.reload();
+            // window.location.reload();
+           window.location.replace("/")
           }, 600);
         } else {
           console.error(data.msg);
@@ -148,8 +156,8 @@ const AuthProviders = ({ children }) => {
         photoURL: user?.photoURL,
         lastSignInTime
       };
-      const response = await fetch("https://server-wheat-xi.vercel.app/users", {
-        method: "PATCH",
+      const response = await fetch("http://localhost:7000/api/auth/google", {
+        method: "post",
         headers: {
           "Content-Type": "application/json",
           
@@ -160,11 +168,12 @@ const AuthProviders = ({ children }) => {
       });
 
       const data = await response.json()
-      console.log(data)
+      console.log(user)
       if (response.ok) {
         Swal.fire("Login successful");
-        setUser(data?.user)
+        setUser(user)
         navigate("/");
+        window.location.reload();
       } else {
         navigate("/login");
         Swal.fire("Something went wrong during login!", "", "error");
@@ -177,9 +186,7 @@ const AuthProviders = ({ children }) => {
     }
   };
 
-  
-
-
+  // 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
@@ -188,6 +195,8 @@ const AuthProviders = ({ children }) => {
     return () => unsubscribe();
   }, []);
 
+
+  
   const userInfo = {
     signInUser,
     loading,
