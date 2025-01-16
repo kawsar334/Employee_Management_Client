@@ -1,15 +1,14 @@
 import React from 'react'
-import { Outlet } from 'react-router-dom'
 import Sidebar from '../../components/sidebar/Sidebar'
-import EmployeeListForHr from './EmployeeListForHr'
+
 
 const HrDashboard = () => {
   return (
     <div className='w-full '>
-     <div className='flex justify-between items-start'>
+     <div className='flex justify-start items-start'>
         <Sidebar />
         <div className='h-max overflow-y-auto px-10'>
-        <EmployeeListForHr />
+        employee ilist
         </div>
      </div>
     </div>

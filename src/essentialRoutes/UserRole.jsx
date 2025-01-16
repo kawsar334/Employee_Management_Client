@@ -12,10 +12,10 @@ const UserRole = () => {
           withCredentials: true, 
         });
           setUserRole(response.data?.user?.role);
-          console.log(response.data?.user?.role)
+          // console.log(response.data.message)
       } catch (err) {
         setError('Failed to fetch user role. Please try again.');
-        console.error('Error fetching user role:', err);
+        // console.error(err.response.data?.message);
       }
     };
 

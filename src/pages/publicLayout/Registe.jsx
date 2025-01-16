@@ -11,7 +11,7 @@ const Registration = ({ toggleToLogin }) => {
     const [email, setEmail] = useState('');
     const [name, setName] = useState('');
     const [designation, setDesignation] = useState("")
-    const [bankAccountNo, setBankAccountNo] =useState("");
+    const [bankAccountNo, setbankAccountNo] =useState("");
     const [salary, setSalary] = useState(null);
 
    
@@ -66,7 +66,7 @@ const Registration = ({ toggleToLogin }) => {
         try {
             const photoURL = await handlePhotoUpload();
             if (!photoURL) return;
-            createUser(email, password, name, photoURL, role, navigate)
+            createUser(email, password, name, photoURL, role, bankAccountNo, navigate)
         } catch (error) {
             console.error('Registration error:', error);
             toast.error(error.message || 'Registration failed.');
@@ -153,7 +153,7 @@ const Registration = ({ toggleToLogin }) => {
                             <input
                                 type="text"
                                 value={bankAccountNo}
-                                onChange={(e) => setBankAccountNo(e.target.value)}
+                                onChange={(e) => setbankAccountNo(e.target.value)}
                                 required
                                 placeholder='bankAccountNo'
                                 className='w-full py-1 px-2 rounded border placeholder:text-[lightgray]'

@@ -13,7 +13,7 @@ import Register from './pages/publicLayout/Registe';
 import ContactUs from './pages/publicLayout/Contact';
 import WorkSheet from './pages/userLayout/EmployeeWorkSheet';
 import PaymentHistory from './pages/userLayout/PaymentHistory';
-import UserDashboard from './pages/userLayout/UserDashboard';
+import UserDashboard from './pages/userLayout/EmployeeDashboard';
 import AdminDashboard from './pages/addminlayout/AdminDashboard';
 import HrDashboard from './pages/hrLayout/HrDashboard';
 import ProtectedRoute from './essentialRoutes/ProtectedRoute';
@@ -22,19 +22,13 @@ import EmployeeListForHr from './pages/hrLayout/EmployeeListForHr';
 import EmployeeDetails from './pages/hrLayout/EmployeeSolug';
 import Reports from './pages/addminlayout/Reports';
 import Payroll from './pages/addminlayout/Payrolls';
+import Analytics from './pages/hrLayout/Analytics';
 
 
 
 
 function App() {
-  const {
-    userRole,
-    error,
-  } = UserRole();
- 
-
- 
- 
+  const { userRole, error,} = UserRole();
   const router = createBrowserRouter([
     {
       path: "/",
@@ -45,48 +39,25 @@ function App() {
         {
           path: "/",
           element: (
-        //  <ProtectedRoute>
-          
-              <Home />
-
-    
-
+            <Home />
           ),
         },
         {
           path: "/dashboard",
           element: (
-            userRole === "admin" ? <AdminDashboard /> : userRole === "hr" ? <HrDashboard /> : <UserDashboard />
+            userRole === "admin" ? <ProtectedRoute> <AdminDashboard /> </ProtectedRoute> : userRole === "hr" ? <ProtectedRoute><HrDashboard /></ProtectedRoute> : <ProtectedRoute> <UserDashboard /></ProtectedRoute>
           ),
-           
+        },
+      
+        // for admin
+        {
+          path:"/payroll",
+          element: userRole === "admin" ? <Payroll /> : <Login />
         },
         {
           path: "/admin/reports",
           element: (
-            <Reports />
-          )
-
-
-        },
-
-       
-        {
-          path: "/hremployeelist",
-          element: (
-            <EmployeeListForHr/>
-          )
-        },
-
-        {
-          path: "/payroll",
-          element: (
-            <Payroll />
-          )
-        },
-        {
-          path: "/analytics",
-          element: (
-            <PaymentHistory />
+            userRole === "admin" ? <Reports /> : <Login />
           )
         },
 
@@ -95,17 +66,38 @@ function App() {
           // for employee
           path: "/worksheet",
           element: (
-            <WorkSheet />
+
+            userRole === "employee" ? <WorkSheet /> : <Login />
           )
         },
-
+        // for employee
         {
-            path:"/employedetails/:id",
-           element:(
-           <EmployeeDetails/>
-           )
+          path: "/payment-history",
+          element: (
+            userRole === "employee" ? <PaymentHistory /> : <Login />
+          )
         },
-
+        // for hr
+        {
+          path: "/employedetails/:id",
+          element: (
+            userRole === "hr" ? <EmployeeDetails /> : <Login />
+          )
+        },
+        // for hr
+        {
+          path: "/employeelist",
+          element: (
+            userRole === "hr" ? <EmployeeListForHr /> : <Login />
+          )
+        },
+        // for hr
+        {
+          path: "/analytics",
+          element: (
+            userRole === "hr" ? <Analytics />:<Login />
+          )
+        },
         // public routes
         {
           path: "/contact",
@@ -128,25 +120,25 @@ function App() {
             <Register />
           )
         },
-       
+
       ],
     },
 
     {
       path: "*",
       element: (
-          <NotFoundPage />
+        <NotFoundPage />
       ),
     },
 
-   
+
 
   ]);
 
 
   return (
     <>
-   
+
       <RouterProvider router={router} />
       <ToastContainer />
     </>

@@ -28,7 +28,7 @@ const AuthProviders = ({ children }) => {
 
 
   // create user /register  
-  const createUser = async (email, password, name, photoURL,role, navigate) => {
+  const createUser = async (email, password, name, photoURL, role, bankAccountNo, navigate) => {
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       try {
@@ -47,7 +47,8 @@ const AuthProviders = ({ children }) => {
         email: userCredential?.user?.email,
         photoURL: photoURL,
         password, 
-        role
+        role,
+        bankAccountNo
       };
 
       try {

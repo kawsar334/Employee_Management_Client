@@ -3,17 +3,15 @@ import PaymentHistory from './PaymentHistory'
 import WorkSheet from './EmployeeWorkSheet'
 import Sidebar from '../../components/sidebar/Sidebar'
 
-const UserDashboard = () => {
+const EmployeeDashboard = () => {
   return (
     <div className=''>
-
-    <div className='flex justify-center items-start gap-3'>
+    <div className='flex justify-start items-start gap-3'>
       <Sidebar/>
-
-        <WorkSheet />
+        EmployeeDashboard
     </div>
     </div>
   )
 }
 
-export default UserDashboard
+export default EmployeeDashboard
