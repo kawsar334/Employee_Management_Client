@@ -5,6 +5,7 @@ import { NavLink } from 'react-router-dom';
 import Sidebar from '../../components/sidebar/Sidebar';
 import AdminEmployeeList from './AdminPageEmployee';
 import axios from 'axios';
+import AdminEmployeeListComponent from '../../components/admincomponents/AdminEmployeeComponent';
 
 const AdminDashboard = () => {
   const [employees, setEmployees] = useState([]);
@@ -71,7 +72,7 @@ const AdminDashboard = () => {
 
           {/* Employees Section */}
           <div className="mt-8">
-            <AdminEmployeeList />
+            <AdminEmployeeListComponent/>
           </div>
         </div>
       </div>

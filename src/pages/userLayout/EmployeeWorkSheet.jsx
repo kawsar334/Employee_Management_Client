@@ -20,6 +20,13 @@ const EmployeeWorkSheet = () => {
         date: new Date(),
     });
 
+    const itemsPerPage = 5; 
+    const [currentPage, setCurrentPage] = useState(1);
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    const currentTasks = tasks.slice(indexOfFirstItem, indexOfLastItem);
+    const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
     useEffect(() => {
         axios
             .get('https://employee-one-coral.vercel.app/api/work/workList', { withCredentials: 'include' })
@@ -137,7 +144,7 @@ const EmployeeWorkSheet = () => {
                     </thead>
                     <tbody>
                         {
-                            tasks.map((task) => (
+                                currentTasks.map((task) => (
                                 <tr key={task?._id} className="border-t">
                                     <td className="p-3">{task?.task}</td>
                                     <td className="p-3">{task?.hoursWorked}</td>
@@ -162,6 +169,41 @@ const EmployeeWorkSheet = () => {
                             ))}
                     </tbody>
                 </table>}
+
+                <div className="flex justify-center items-center mt-4 gap-2">
+                    <button
+                        onClick={() => currentPage > 1 && paginate(currentPage - 1)}
+                        className={`px-3 py-1 border rounded-md ${currentPage === 1 ? 'bg-gray-300 text-gray-500 cursor-not-allowed' : 'bg-gray-200 text-gray-800'
+                            }`}
+                        disabled={currentPage === 1}
+                    >
+                        Previous
+                    </button>
+                    {Array.from({ length: Math.ceil(tasks.length / itemsPerPage) }, (_, index) => (
+                        <button
+                            key={index}
+                            onClick={() => paginate(index + 1)}
+                            className={`px-3 py-1 border rounded-md ${currentPage === index + 1
+                                    ? 'bg-blue-500 text-white'
+                                    : 'bg-gray-200 text-gray-800'
+                                }`}
+                        >
+                            {index + 1}
+                        </button>
+                    ))}
+
+                    <button
+                        onClick={() => currentPage < Math.ceil(tasks.length / itemsPerPage) && paginate(currentPage + 1)}
+                        className={`px-3 py-1 border rounded-md ${currentPage === Math.ceil(tasks.length / itemsPerPage)
+                                ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                                : 'bg-gray-200 text-gray-800'
+                            }`}
+                        disabled={currentPage === Math.ceil(tasks.length / itemsPerPage)}
+                    >
+                        Next
+                    </button>
+                </div>;
+                {/*  */}
 
                 {modalData && (
                     <Modal
