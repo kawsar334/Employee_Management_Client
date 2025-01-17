@@ -13,7 +13,7 @@ const ProtectedRoute = ({ children }) => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch(`http://localhost:7000/api/auth/jwt`, {
+                const response = await fetch(`https://employee-one-coral.vercel.app/api/auth/jwt`, {
                     method: "GET",
                     credentials: "include",
                 });

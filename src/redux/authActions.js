@@ -89,9 +89,9 @@ export const register = (email, password, photoURL, name, navigate, toast)=>asyn
             photoURL: user.photoURL,
         };
 
-        console.log(email, password, photoURL, name)
+       
         const response = await axios.post("https://server-anud.vercel.app/api/auth/register", userInfo);
-        console.log(response)
+
         if (response.data?.user) {
             // dispatch(setUser(response.data.user)); // Update Redux store with user data
             toast.success("Registration successful!");
@@ -102,7 +102,7 @@ export const register = (email, password, photoURL, name, navigate, toast)=>asyn
         const errorMessage = error.response?.data?.message || error.message;
         dispatch(setError(errorMessage));
         toast.error(errorMessage || "Registration failed. Please try again.");
-      console.log(error)
+
     }
 
 }

@@ -23,6 +23,7 @@ import EmployeeDetails from './pages/hrLayout/EmployeeSolug';
 import Reports from './pages/addminlayout/Reports';
 import Payroll from './pages/addminlayout/Payrolls';
 import Analytics from './pages/hrLayout/Analytics';
+import AdminEmployeeList from './pages/addminlayout/AdminPageEmployee';
 
 
 
@@ -53,6 +54,10 @@ function App() {
         {
           path:"/payroll",
           element: userRole === "admin" ? <Payroll /> : <Login />
+        },
+        {
+          path:"/all-employee-list",
+          element: userRole === "admin" ? <AdminEmployeeList /> : <Login />
         },
         {
           path: "/admin/reports",

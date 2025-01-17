@@ -14,9 +14,9 @@ const Navbar = () => {
   return (
     <nav className="bg-blue-800 text-white p-4 sticky top-0 left-0 z-40 shadow-lg">
       <div className="container mx-auto flex justify-between items-center">
-        <a href="/" className="text-2xl font-bold">Noukori.com</a>
+        <NavLink to="/" className="text-2xl font-bold">Noukori.com</NavLink>
         <div className="hidden md:flex space-x-6 items-center">
-          <a href="/contact" className="text-lg hover:text-gray-300">Contact</a>
+          <NavLink to="/contact" className="text-lg hover:text-gray-300">Contact</NavLink>
           {userRole === 'admin' && (
             <NavLink to="/dashboard" className="text-lg hover:text-gray-300">Dashboard</NavLink>
           )}
@@ -31,8 +31,8 @@ const Navbar = () => {
 
           {!user ? (
             <>
-              <a href="/login" className="text-lg hover:text-gray-300">Login</a>
-              <a href="/register" className="text-lg hover:text-gray-300">Register</a>
+              <NavLink to="/login" className="text-lg hover:text-gray-300">Login</NavLink>
+              <NavLink to="/register" className="text-lg hover:text-gray-300">Register</NavLink>
             </>
           ) : (
             <div className="flex items-center space-x-3">
@@ -54,15 +54,15 @@ const Navbar = () => {
           <i className="fas fa-bars"></i>
         </button>
       </div>
-      <div id="mobile-menu" className="md:hidden hidden flex flex-col space-y-4 mt-4">
-        <a href="/contact" className="text-lg">Contact</a>
+      <div id="mobile-menu" className="md:hidden  flex flex-col space-y-4 mt-4">
+        <NavLink to="/contact" className="text-lg">Contact</NavLink>
         {userRole === 'admin' && <NavLink to="/dashboard" className="text-lg">Dashboard</NavLink>}
         {userRole === 'hr' && <NavLink to="/dashboard" className="text-lg">Dashboard</NavLink>}
         {userRole === 'employee' && user && <NavLink to="/dashboard" className="text-lg">Dashboard</NavLink>}
         {!user ? (
           <>
-            <a href="/login" className="text-lg">Login</a>
-            <a href="/register" className="text-lg">Register</a>
+            <NavLink href="/login" className="text-lg">Login</NavLink>
+            <NavLink href="/register" className="text-lg">Register</NavLink>
           </>
         ) : (
           <div className="flex items-center space-x-3">

@@ -1,40 +1,71 @@
+import React from "react";
+
+const servicesData = [
+  {
+    id: 1,
+    title: "Employee Management",
+    description: "Manage employee profiles, roles, and tasks efficiently.",
+    icon: "https://via.placeholder.com/40x40?text=👨‍💼",
+  },
+  {
+    id: 2,
+    title: "Payroll Processing",
+    description: "Automated payroll calculation and salary distribution.",
+    icon: "https://via.placeholder.com/40x40?text=💰",
+  },
+  {
+    id: 3,
+    title: "Leave Management",
+    description: "Track and manage employee leaves, holidays, and absences.",
+    icon: "https://via.placeholder.com/40x40?text=📝",
+  },
+  {
+    id: 4,
+    title: "Performance Tracking",
+    description: "Monitor employee performance through feedback and reviews.",
+    icon: "https://via.placeholder.com/40x40?text=📊",
+  },
+  {
+    id: 5,
+    title: "Task Management",
+    description: "Assign and track employee tasks with real-time updates.",
+    icon: "https://via.placeholder.com/40x40?text=✅",
+  },
+  {
+    id: 6,
+    title: "Recruitment Management",
+    description: "Streamline your recruitment process with applicant tracking.",
+    icon: "https://via.placeholder.com/40x40?text=📅",
+  },
+];
+
 const Services = () => {
-    const services = [
-        { title: 'Software Development', description: 'Custom software solutions tailored to your needs.' },
-        { title: 'Digital Marketing', description: 'Boost your online presence and reach your target audience.' },
-        { title: 'Cloud Solutions', description: 'Scalable and secure cloud infrastructure for your business.' },
-    ];
-
-    return (
-        <div className="services py-12 bg-gray-100">
-            <h2 className="text-3xl text-center font-bold mb-8">Our Services</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4">
-                {services.map((service, index) => (
-                    <div key={index} className="service-card p-6 bg-white shadow rounded">
-                        <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
-                        <p>{service.description}</p>
-                    </div>
-                ))}
+  return (
+    <section className="py-16 bg-gray-50">
+      <div className="container mx-auto px-6 text-center">
+        <h2 className="text-3xl font-bold text-gray-800 mb-8">
+          Our Services
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8">
+          {servicesData.map((service) => (
+            <div key={service.id} className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div className="flex justify-center mb-4">
+                <img
+                  src={service.icon}
+                  alt={service.title}
+                  className="w-12 h-12 rounded-full"
+                />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                {service.title}
+              </h3>
+              <p className="text-gray-600">{service.description}</p>
             </div>
-
-{/* <section className="py-20 bg-gray-100 text-center">
-        <h2 className="text-3xl font-bold">Our Services</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-10">
-          <div className="p-6 bg-white rounded-lg shadow-md">
-            <h3 className="text-xl font-semibold">Employee Management</h3>
-            <p className="mt-2">Streamlined employee workflow and payroll management.</p>
-          </div>
-          <div className="p-6 bg-white rounded-lg shadow-md">
-            <h3 className="text-xl font-semibold">HR Solutions</h3>
-            <p className="mt-2">Comprehensive HR services for managing your workforce effectively.</p>
-          </div>
-          <div className="p-6 bg-white rounded-lg shadow-md">
-            <h3 className="text-xl font-semibold">Workplace Analytics</h3>
-            <p className="mt-2">Real-time insights into employee performance and productivity.</p>
+          ))}
         </div>
-      </section> */}
-
-        </div>
-    );
+      </div>
+    </section>
+  );
 };
+
 export default Services;

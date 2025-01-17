@@ -23,7 +23,7 @@ const Login = ({ toggleToRegister }) => {
      setUser(res.user);
      console.log(res.user)
       
-      const sendData = await axios.post("http://localhost:7000/api/auth/login",{email,password},{
+      const sendData = await axios.post("https://employee-one-coral.vercel.app/api/auth/login",{email,password},{
         withCredentials: 'include', 
       });
       console.log()

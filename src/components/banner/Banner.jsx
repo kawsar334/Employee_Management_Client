@@ -1,12 +1,116 @@
-const Banner = () => {
+import React, { useState } from "react";
+
+const sliderData = [
+    {
+        id: 1,
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRu4pGpS_rb-5LLzV-XFYeC7MO86OOKFMQLRg&s",
+        title: "Employee Workflow Monitoring",
+        description: "Track employee workload and performance with ease using our employee management system.",
+    },
+    {
+        id: 2,
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGT1djMEnXcrgY8NcxjOypKFkwtPtFMzXmMA&s",
+        title: "Salary Management",
+        description: "Efficiently manage employee salaries, deductions, and payments in one place.",
+    },
+    {
+        id: 3,
+        image: "https://www.shutterstock.com/image-vector/project-planning-roadmap-two-managers-260nw-2254064463.jpg",
+        title: "Task Assignment",
+        description: "Assign and track tasks for employees, ensuring smooth workflow across departments.",
+    },
+    {
+        id: 4,
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQbYFBAofqyIv5dk-DiTrLFgI2WXaHvnJUTA&s",
+        title: "Employee Records",
+        description: "Maintain accurate employee records including contracts, job roles, and more.",
+    },
+    {
+        id: 5,
+        image: "https://tivazo.com/wp-content/uploads/2024/05/Happy-Employees-img.webp",
+        title: "HR Dashboard",
+        description: "HRs can efficiently monitor and manage employees, payroll, and performance metrics.",
+    },
+    {
+        id: 6,
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhMTgyreAPuGEB7HGPACnd2vV6wjdoCnhaHQ&s",
+        title: "Leave Management",
+        description: "Streamline leave requests and approvals with the leave management system.",
+    }
+];
+
+const BannerCarousel = () => {
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    // Go to the previous slide
+    const prevSlide = () => {
+        setCurrentIndex((prevIndex) => (prevIndex === 0 ? sliderData.length - 1 : prevIndex - 1));
+    };
+
+    // Go to the next slide
+    const nextSlide = () => {
+        setCurrentIndex((prevIndex) => (prevIndex === sliderData.length - 1 ? 0 : prevIndex + 1));
+    };
+
     return (
-        <div className="banner bg-cover bg-center bg-blue-500 h-[400px] flex items-center justify-center text-white">
-            <div className="text-center">
-                <h1 className="text-4xl font-bold">Welcome to Our Company</h1>
-                <p className="mt-4">Your partner in success for over a decade.</p>
-                <button className="mt-6 px-4 py-2 bg-white text-blue-600 rounded">Learn More</button>
+        <div className="relative w-full bg-gray-100  h-[400px] ">
+            {/* Carousel Container */}
+            <div className="relative h-full">
+                {/* Slide */}
+                <div className="w-full h-full">
+                    <img
+                        src={sliderData[currentIndex].image}
+                        alt={sliderData[currentIndex].title}
+                        className="w-full h-full object-cover  "
+                    />
+                    <div className="absolute top-0 left-0 right-0 h-full bg-gradient-to-t from-black to-transparent p-4 text-white flex justify-center items-center flex-col gap-3">
+                        <h2 className="text-xl font-semibold">{sliderData[currentIndex].title}</h2>
+                        <p className="text-sm mt-2">{sliderData[currentIndex].description}</p>
+                        <button className="flex justify-center items-center border px-3 py-1 rounded ">
+                            Learn More
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                className="h-4 w-4 ml-2"
+                                viewBox="0 0 20 20"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                            >
+                                <path d="M12 19.59L19.59 12 12 4.41 4.41 12 12 19.59z" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                {/* Navigation Buttons */}
+                <button
+                    onClick={prevSlide}
+                    className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-black text-white p-2 rounded-full shadow-md hover:bg-gray-700"
+                >
+                    &#60;
+                </button>
+                <button
+                    onClick={nextSlide}
+                    className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-black text-white p-2 rounded-full shadow-md hover:bg-gray-700"
+                >
+                    &#62;
+                </button>
+            </div>
+
+            {/* Dots Navigation */}
+            <div className="flex justify-center space-x-2 mt-4">
+                {sliderData.map((_, index) => (
+                    <button
+                        key={index}
+                        onClick={() => setCurrentIndex(index)}
+                        className={`w-3 h-3 rounded-full ${index === currentIndex ? "bg-blue-500" : "bg-gray-300"} transition-all duration-300`}
+                    ></button>
+                ))}
             </div>
         </div>
     );
 };
-export default Banner;
+
+export default BannerCarousel;

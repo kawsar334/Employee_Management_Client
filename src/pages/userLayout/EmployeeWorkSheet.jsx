@@ -22,7 +22,7 @@ const EmployeeWorkSheet = () => {
 
     useEffect(() => {
         axios
-            .get('http://localhost:7000/api/work/workList', { withCredentials: 'include' })
+            .get('https://employee-one-coral.vercel.app/api/work/workList', { withCredentials: 'include' })
             .then((res) => setTasks(res.data?.data))
             .catch((err) => console.error(err));
     }, []);
@@ -33,7 +33,7 @@ const EmployeeWorkSheet = () => {
         setTimeout(()=>{
             setLoading(false)
             axios
-                .post('http://localhost:7000/api/work/creatework', form, { withCredentials: 'include' })
+                .post('https://employee-one-coral.vercel.app/api/work/creatework', form, { withCredentials: 'include' })
                 .then((res) => {
                     setTasks([res?.data?.data, ...tasks]);
                     if(res){
@@ -54,7 +54,7 @@ const EmployeeWorkSheet = () => {
       setTimeout(() => {
          setLoading(false)
           axios
-              .put(`http://localhost:7000/api/work/${modalData._id}`, modalData, { withCredentials: 'include' })
+              .put(`https://employee-one-coral.vercel.app/api/work/${modalData._id}`, modalData, { withCredentials: 'include' })
               .then((res) => {
                   setTasks(tasks.map((task) => (task._id === res?.data?.data._id ? res?.data?.data : task)));
                   setModalData(null);
@@ -71,7 +71,7 @@ const EmployeeWorkSheet = () => {
         setTimeout(() => {
             setLoading(false)
             axios
-                .delete(`http://localhost:7000/api/work/${id}`, { withCredentials: 'include' })
+                .delete(`https://employee-one-coral.vercel.app/api/work/${id}`, { withCredentials: 'include' })
                 .then((res) => {
                     setTasks(tasks.filter((task) => task._id !== id))
                     if (res) {

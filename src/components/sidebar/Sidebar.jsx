@@ -15,7 +15,7 @@ const Sidebar = () => {
     useEffect(() => {
         const fetchUserRole = async () => {
             try {
-                const response = await axios.get('http://localhost:7000/api/auth/jwt', {
+                const response = await axios.get('https://employee-one-coral.vercel.app/api/auth/jwt', {
                     withCredentials: true,
                 });
                 setUserId(response.data?.user.id);
@@ -29,7 +29,7 @@ const Sidebar = () => {
     useEffect(() => {
         const fetchReports = async () => {
             try {
-                const response = await axios.get("http://localhost:7000/api/message/messages", { withCredentials: true });
+                const response = await axios.get("https://employee-one-coral.vercel.app/api/message/messages", { withCredentials: true });
                 setMessage(response.data);
             } catch (error) {
                 console.error("Error fetching reports:", error);
@@ -39,11 +39,12 @@ const Sidebar = () => {
     }, []);
 
     return (
-        <div className="bg-white text-gray-500 p-5 w-72 h-screen shadow-lg">
-            <h1 className="text-xl font-bold text-gray-700 mb-6 capitalize">{user?.displayName}</h1>
+        <div className="bg-white text-gray-500 p-5 w-full md:w-72 h-screen shadow-lg sticky left-0 top-0 ">
+            <h1 className="text-xl font-bold text-gray-700 mb-6 capitalize"> <i className="fas fa-tasks text-green-500 mr-2"></i> {user?.displayName}</h1>
             {userRole === 'admin' && (
-                <div className="flex flex-col gap-4">
+                <div className="flex flex-row md:flex-col gap-4">
                     <NavLink to="/dashboard" className="text-lg hover:text-blue-600">Admin Dashboard</NavLink>
+                    <NavLink to="/all-employee-list" className="text-lg hover:text-blue-600">Employee list</NavLink>
                     <NavLink to="/payroll" className="text-lg hover:text-blue-600">User Management</NavLink>
                     <NavLink to="/admin/reports" className="text-lg hover:text-blue-600">
                         Reports <span className="text-red-500">{message.length}</span>
@@ -52,14 +53,14 @@ const Sidebar = () => {
                 </div>
             )}
             {userRole === 'hr' && (
-                <div className="flex flex-col gap-4 mt-6">
+                <div className="flex flex-row md:flex-col gap-4 mt-6">
                     <NavLink to="/dashboard" className="text-lg hover:text-blue-600">Dashboard</NavLink>
                     <NavLink to="/employeelist" className="text-lg hover:text-blue-600">Employee</NavLink>
-                    <NavLink to="/analytics" className="text-lg hover:text-blue-600">Analytics</NavLink>
+                    <NavLink to="/analytics" className="text-lg hover:text-blue-600">Progress</NavLink>
                 </div>
             )}
             {userRole === 'employee' && user && (
-                <div className="flex flex-col gap-4 mt-6">
+                <div className="flex flex-row md:flex-col gap-4 mt-6 w-full">
                     <NavLink to="/dashboard" className="text-lg hover:text-blue-600">Dashboard</NavLink>
                     <NavLink to="/payment-history" className="text-lg hover:text-blue-600">Payment History</NavLink>
                     <NavLink to="/worksheet" className="text-lg hover:text-blue-600">Worksheet</NavLink>

@@ -6,6 +6,7 @@ import Testimonials from '../../components/testimonials/Testimonials';
 import AboutUs from '../../components/AboutUs/AboutUs';
 import CallToAction from '../../CallToAction/CallToAction';
 import { toast } from 'react-toastify';
+import Features from '../../Features/Features';
 
 const Home = ({ user }) => {
 
@@ -15,7 +16,7 @@ const Home = ({ user }) => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await fetch('http://localhost:7000/api/user/userList', {
+        const response = await fetch('https://employee-one-coral.vercel.app/api/user/userList', {
           method: 'GET', 
           credentials: 'include',
           headers: {
@@ -60,8 +61,10 @@ const Home = ({ user }) => {
         </section>
       )}
      
-
+     
       <Testimonials/>
+      <Features/>
+      
       <AboutUs/>
 
       <CallToAction/>
