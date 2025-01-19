@@ -15,7 +15,7 @@ const Navbar = () => {
   return (
     <nav className="bg-main text-text p-4 sticky top-0 left-0 z-40 shadow-lg">
       <div className="container mx-auto flex justify-between items-center">
-        <NavLink to="/" className="text-3xl font-bold text-text ">Noukori <span className="text-white">Gulf</span></NavLink>
+        <NavLink to="/" className="text-3xl font-bold text-text ml-3 ">Noukori <span className="text-white">Gulf</span></NavLink>
         <div className="hidden md:flex space-x-6 items-center">
           <NavLink to="/" className="text-lg hover:text-gray-300">Home</NavLink>
           <NavLink to="/contact" className="text-lg hover:text-gray-300">Contact</NavLink>
@@ -23,6 +23,7 @@ const Navbar = () => {
           {userRole === 'admin' && (
             <NavLink to="/dashboard" className="text-lg hover:text-gray-300">Dashboard</NavLink>
           )}
+          {user&&<NavLink to="/profile" className="text-white capitalize">{user?.displayName}</NavLink>}
           {userRole === 'hr' && (
             <NavLink to="/dashboard" className="text-lg hover:text-gray-300">Dashboard</NavLink>
           )}
@@ -54,7 +55,7 @@ const Navbar = () => {
         </button>
       </div>
 
-      {openMenu &&<div className="bg-white md:hidden rounded text-gray-500 p-5 w-full md:w-72 h-screen shadow-lg sticky left-0 top-[500px] my-10 ">
+      {openMenu &&<div className="bg-main md:hidden rounded text-gray-500 p-5 w-full md:w-72 h-screen shadow-lg sticky left-0 top-[500px] my-10 ">
         <h1 className="text-xl font-bold text-gray-700 mb-6 capitalize"> <i className="fas fa-tasks text-green-500 mr-2 hidden"></i> {user?.displayName}</h1>
         {userRole === 'admin' && (
           <div className="flex flex-col gap-4">

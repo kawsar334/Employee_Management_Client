@@ -39,7 +39,7 @@ const Sidebar = () => {
     }, []);
 
     return (
-        <div className="bg-white text-gray-500 p-5 w-full md:w-72 h-screen shadow-lg sticky left-0 top-0  hidden md:flex flex-col">
+        <div className="bg-main text-white  p-5 w-full md:w-72 h-screen shadow-lg sticky left-0 top-0  hidden md:flex flex-col">
             <h1 className="text-xl font-bold text-gray-700 mb-6 capitalize"> <i className="fas fa-tasks text-green-500 mr-2"></i> {user?.displayName}</h1>
             {userRole === 'admin' && (
                 <div className="flex  flex-col gap-4">
