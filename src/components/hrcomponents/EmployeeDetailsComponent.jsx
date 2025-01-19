@@ -71,7 +71,7 @@ const EmployeeDetails = () => {
             Loading...
         </div>
     ) : (
-        <div style={{ maxWidth: '900px', margin: '50px auto', padding: '20px', border: '1px solid #ddd', borderRadius: '10px', backgroundColor: '#f9f9f9' }}>
+        <div style={{ minWidth: '100%', margin: '50px auto', padding: '20px', border: '1px solid #ddd', borderRadius: '10px', backgroundColor: '#f9f9f9' }}>
             <h2 style={{ textAlign: 'center', color: '#333', marginBottom: '20px' }}>Employee Details</h2>
             <div style={{ display: 'flex', alignItems: 'center', marginBottom: '30px', gap: '20px' }}>
                 <img

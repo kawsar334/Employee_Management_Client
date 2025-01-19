@@ -5,7 +5,7 @@ import Sidebar from '../../components/sidebar/Sidebar'
 const EmployeeSolug = () => {
   return (
     <div className='flex '>
-        <Sidebar/>
+        {/* <Sidebar/> */}
         <EmployeeDetails/>
     </div>
   )

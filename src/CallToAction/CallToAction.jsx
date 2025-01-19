@@ -1,6 +1,7 @@
 
 import React from "react";
 import { NavLink } from "react-router-dom";
+import ContactUs from "../pages/publicLayout/Contact";
 
 const CallToAction = () => {
     return (
@@ -16,6 +17,9 @@ const CallToAction = () => {
                 >
                     Sign Up Today
                 </NavLink>
+
+
+                <ContactUs/>
             </div>
         </section>
     );

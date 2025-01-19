@@ -1,8 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import Modal from 'react-modal';
 import { toast } from 'react-toastify';
 import Sidebar from '../../components/sidebar/Sidebar';
+import StripeCheckout from 'react-stripe-checkout';
+import { AuthContext } from '../../context/AuthProviders';
+import Stripe from 'stripe';
+
 
 const EmployeeList = () => {
   const [employees, setEmployees] = useState([]);
@@ -12,14 +16,20 @@ const EmployeeList = () => {
   const [salary, setSalary] = useState(0)
   const [page, setPage] = useState(1);
   const [limit, setLimit] = useState(10);
+  const {user,} = useContext(AuthContext);
+  const [amount, setAmount] = useState(0)
+  const [stripeToken, setStripeToken] = useState(null)
+  const sechret_key = "sk_test_51KGo0XHG7qACO4ZlS6Hm3ub6wHLCBzoHwqSNUtYcmLNodxaaRRL5JWzOJpoBvnJ3Lxv8RzcpKB9optVeAoQ23ASy00pkyoRJCy"
+  const publishable_key = "pk_test_51KGo0XHG7qACO4ZleQqv0XtS5T9ryIsssF6WRliEaQZOJ0sVZm5TSes4uQVS9bSuAKyjeysqnUD8DFgNDGxJF8oC002HOxI3YC"
 
   useEffect(() => {
     fetchEmployees();
   }, [page, limit]);
 
+ 
   const fetchEmployees = async () => {
     try {
-      const response = await axios.get('https://employee-one-coral.vercel.app/api/user/userList', {
+           const response = await axios.get('https://employee-one-coral.vercel.app/api/user/userList', {
         params: { page, limit },
         withCredentials: true,
       });
@@ -59,6 +69,32 @@ const EmployeeList = () => {
   };
 
 
+  const onToken = async (token) => {
+    setStripeToken(token)
+   
+  };
+
+
+  useEffect(()=>{
+const sendMoney=async()=>{
+  try {
+
+    const response = await axios.post('https://employee-one-coral.vercel.app/api/stripe/create', {
+      amount,
+      tokenId: stripeToken.id,
+    });
+    console.log(response.data);
+    toast.success(response?.data?.message);
+    setModalIsOpen(false);
+    fetchEmployees();
+  } catch (err) {
+    console.error("Payment failed", err.response);
+    toast.error(err.response.data.message || "Payment failed. Please try again.");
+  }
+}
+
+   stripeToken && sendMoney()
+  },[stripeToken])
 
 
   return (
@@ -67,6 +103,7 @@ const EmployeeList = () => {
       <div className="max-w-6xl mx-auto p-6 bg-white shadow-md rounded-md ">
         <h2 className="text-2xl font-semibold text-gray-800 mb-4">Employee List</h2>
 
+     
 
         <div className="overflow-x-auto">
           <table className="w-full border border-gray-200 rounded-lg ">
@@ -100,16 +137,37 @@ const EmployeeList = () => {
                   <td className="px-4 py-2">{employee?.bankAccountNo || "Not found"}</td>
                   <td className="px-4 py-2">${employee?.salary}</td>
                   <td className="px-4 py-2">
-                    <button
-                      onClick={() => openModal(employee)}
-                      disabled={!employee.isVerified}
-                      className={`px-4 py-2 rounded ${employee.isVerified
-                        ? 'bg-blue-500 text-white hover:bg-blue-600'
-                        : 'bg-gray-400 text-gray-700 cursor-not-allowed'
-                        }`}
-                    >
-                      Pay
-                    </button>
+                   <div className='flex flex-col gap-[1px]'>
+                      <button
+                        onClick={() => openModal(employee)}
+                        disabled={!employee.isVerified}
+                        className={`px-4 py-2 rounded ${employee.isVerified
+                          ? 'bg-blue-500 text-white hover:bg-blue-600'
+                          : 'bg-gray-400 text-gray-700 cursor-not-allowed'
+                          }`}
+                      >
+                        Pay
+                      </button>
+
+                      <button className="border bg-[#4CAF50] text-white p-1 rounded" onClick={() => setAmount(employee.salary)}>
+                        <StripeCheckout
+                          name={user?.displayName}
+                          image={user?.photoURL}
+                          panelLabel="Give Money"
+                          amount={salary * 100}
+                          currency="USD"
+                          email={user?.email}
+                          shippingAddress
+                          billingAddress
+                          token={onToken}
+                          stripeKey={publishable_key}
+                          description="Salary Payment"
+                        >
+                          Checkout
+                        </StripeCheckout>
+                      </button>
+                   </div>
+
                   </td>
                   <td className="px-4 py-2">
                     <a
@@ -142,6 +200,7 @@ const EmployeeList = () => {
               <input
                 type="text"
                 value={paymentInfo.month}
+                required
                 onChange={(e) =>
                   setPaymentInfo({ ...paymentInfo, month: e.target.value })
                 }
@@ -153,6 +212,7 @@ const EmployeeList = () => {
               <input
                 type="text"
                 value={paymentInfo.year}
+                required
                 onChange={(e) =>
                   setPaymentInfo({ ...paymentInfo, year: e.target.value })
                 }
@@ -178,3 +238,39 @@ export default EmployeeList;
 
 
 
+// const onToken = async (token) => {
+//   try {
+
+//     const response = await axios.post('http://localhost:7000/api/stripe/create', {
+//       amount: 100,
+//       tokenId: token.id,
+//     });
+//     console.log(response.data);
+//     toast.success(response?.data?.message);
+//     setModalIsOpen(false);
+//     fetchEmployees();
+//   } catch (err) {
+//     console.error("Payment failed", err.response);
+//     toast.error(err.response.data.message || "Payment failed. Please try again.");
+//   }
+// };
+
+
+
+// <StripeCheckout
+//   name={user?.displayName}
+//   image={user?.photoURL}
+//   panelLabel="Give Money"
+//   amount={100 * 100} // Amount in cents
+//   currency="USD"
+//   email={user?.email}
+//   shippingAddress
+//   billingAddress
+//   token={onToken}
+//   stripeKey={publishable_key}
+//   description="Salary Payment"
+// >
+//   <button className="btn btn-primary">
+//     checkout
+//   </button>
+// </StripeCheckout>

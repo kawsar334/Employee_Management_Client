@@ -23,7 +23,6 @@ const AdminEmployeeListComponent = () => {
             setTimeout(async() => {
                 setLoading(false)
                 const response = await axios.get('https://employee-one-coral.vercel.app/api/user/all-employee-list', { withCredentials: true });
-                // const response = await axios.get('http://localhost:7000/api/user/all-employee-list', { withCredentials: true });
                 setEmployees(response.data.employees);
                 console.log(response.data.employees[0])
             }, 1000);
@@ -138,7 +137,7 @@ const AdminEmployeeListComponent = () => {
 
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
     return (
-        <div className="w-full px-4 py-6  ">
+        <div className="w-[900px] px-4 py-6 overflow-auto ">
             <div className="text-center mb-4 flex justify-center items-center gap-4">
                 <h2 className="text-2xl font-semibold text-center mb-4">All Employees</h2>
                 <button
@@ -158,7 +157,7 @@ const AdminEmployeeListComponent = () => {
                     )}
                 </button>
             </div>
-            <div className="overflow-x-auto">
+            <div className="w-full">
                 {viewMode === 'table' ? <table className="table-auto w-full border border-gray-200 shadow-sm text-center text-sm lg:text-base">
                     <thead className="bg-gray-100">
                         <tr>
@@ -212,7 +211,7 @@ const AdminEmployeeListComponent = () => {
                                             className="w-[130px] border rounded-md px-2 py-1 text-center"
                                             required
                                         />
-                                        <button type='submit' className='border p-1 rounded'>Update salaray</button>
+                                        <button type='submit' className='border bg-teal p-1 rounded'>Update</button>
                                    </form>
                                 </td>
                             </tr>
@@ -230,29 +229,29 @@ const AdminEmployeeListComponent = () => {
                                     <div key={employee._id} className="border p-4 rounded-lg shadow hover:shadow-lg">
                                         <h3 className="text-lg font-semibold">{employee.name}</h3>
                                         <p className="text-gray-600">Designation: {employee.designation || "Not Found"}</p>
-                                        <form onSubmit={(e) => handleUpdateSalary(employee, e)} className="flex justify-between items-start gap-2 flex-col flex-wrap">
+                                        <form onSubmit={(e) => handleUpdateSalary(employee, e)} className="flex justify- items-start gap-2 f flex-wrap">
                                             <input
                                                 type="number"
                                                 placeholder={employee.salary >0 ? employee.salary :"Not Added Salary"}
                                                 onChange={(e) => setNewSalary(e.target.value)}
-                                                className="w-full border rounded-md py-1 px-2"
+                                                className="w-[60%] border rounded-md py-1 px-2"
                                                 required
                                             />
-                                            <button type="submit" className="border p-1 rounded text-[13px] w-full bg-[teal] text-white">Update Salary</button>
+                                            <button type="submit" className="border p-1 rounded text-[13px] w-max bg-[teal] text-white">Update </button>
                                         </form>
-                                        <div className="mt-4 flex gap-2 flex-col">
+                                        <div className="mt-4 flex gap-2 ">
                                             {/* {!employee.isFired&&<div>Unblock</div> } */}
                                             {!employee.isFired ? (
                                                 <>
                                                     <button
-                                                        className="bg-blue-500 text-white px-3 py-1 rounded-md hover:bg-blue-600"
+                                                        className="bg-blue-500 w-max text-white px-3 py-1 rounded-md hover:bg-blue-600"
                                                         onClick={() => makeHR(employee._id)}
                                                     >
                                                         {employee.role === "hr" ? "Hr" : "Make HR"}
                                                     </button>
                                                   
                                                     <button
-                                                        className="bg-red-500 text-white px-3 py-1 rounded-md hover:bg-red-600"
+                                                        className="bg-red-500 w-max text-white px-3 py-1 rounded-md hover:bg-red-600"
                                                         onClick={() => {
                                                             setShowModal(true);
                                                             setSelectedEmployee(employee);
