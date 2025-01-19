@@ -21,7 +21,7 @@ const sliderData = [
     },
     {
         id: 4,
-        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQbYFBAofqyIv5dk-DiTrLFgI2WXaHvnJUTA&s",
+        image: "https://jobhunt.madrasthemes.com/wp-content/uploads/2018/09/home-bg.jpg",
         title: "Employee Records",
         description: "Maintain accurate employee records including contracts, job roles, and more.",
     },

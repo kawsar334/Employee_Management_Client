@@ -9,6 +9,7 @@ const Login = ({ toggleToRegister }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [vissible, setVissible] = useState(false)
   const navigate = useNavigate()
 
   const handleGoogleLogin = () => {
@@ -60,16 +61,19 @@ const Login = ({ toggleToRegister }) => {
               placeholder='Email'
             />
           </div>
-          <div className='flex justify-start items-start gap-1 flex-col w-full'>
+          <div className='flex justify-start items-start gap-1 flex-col w-full relative'>
             <label>Password:</label>
             <input
-              type="password"
+              type={vissible ? "text" : 'password'}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
               className='w-full placeholder:text-[lightgray] border px-4 py-2 rounded '
               placeholder='password'
             />
+        { vissible?   <i className="fas fa-eye cursor-pointer absolute right-[30px] top-[40px]" onClick={()=>setVissible(!vissible)}></i>: 
+            <i className="fas fa-eye-slash  cursor-pointer absolute right-[30px] top-[40px]" onClick={()=>setVissible(!vissible)}></i>} 
+
          </div>
           {error && <p className="error">{error}</p>}
           <button type="submit" className='w-full border px-3 py-2 rounded  bg-main text-white'>Login</button>

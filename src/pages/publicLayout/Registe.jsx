@@ -13,7 +13,7 @@ const Registration = ({ toggleToLogin }) => {
     const [designation, setDesignation] = useState("")
     const [bankAccountNo, setbankAccountNo] =useState("");
     const [salary, setSalary] = useState(null);
-
+ const [vissible, setVissible] = useState(false)
    
     const [password, setPassword] = useState('');
     const [role, setRole] = useState('employee');
@@ -112,16 +112,18 @@ const Registration = ({ toggleToLogin }) => {
                     </div>
 
                     <div className='flex justify-start md:justify-center items-start flex-col md:flex-row w-full  '>
-                        <div className='w-full flex justify-start items-start flex-col  p-1'>
+                        <div className='w-full flex justify-start items-start flex-col  p-1 relative'>
                             <label>Password:</label>
                             <input
-                                type="password"
+                                type={vissible ? "text" : 'password'}
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                                 required
                                 placeholder='Password'
                                 className='w-full py-2 px-2 rounded border placeholder:text-[lightgray]'
                             />
+                            {vissible ? <i className="fas fa-eye cursor-pointer absolute right-[30px] top-[40px]" onClick={() => setVissible(!vissible)}></i> :
+                                <i className="fas fa-eye-slash  cursor-pointer absolute right-[30px] top-[40px]" onClick={() => setVissible(!vissible)}></i>} 
                         </div>
                         <div className='w-full flex justify-start items-start flex-col  p-1'>
                             <label>Designation:</label>

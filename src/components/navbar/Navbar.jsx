@@ -59,27 +59,27 @@ const Navbar = () => {
         <h1 className="text-xl font-bold text-gray-700 mb-6 capitalize"> <i className="fas fa-tasks text-green-500 mr-2 hidden"></i> {user?.displayName}</h1>
         {userRole === 'admin' && (
           <div className="flex flex-col gap-4">
-            <NavLink     onClick={()=>setOpenMenu(!openMenu)} to="/dashboard" className="text-lg hover:text-blue-600">Admin Dashboard</NavLink>
-            <NavLink     onClick={()=>setOpenMenu(!openMenu)} to="/all-employee-list" className="text-lg hover:text-blue-600">Employee list</NavLink>
-            <NavLink     onClick={()=>setOpenMenu(!openMenu)} to="/payroll" className="text-lg hover:text-blue-600">User Management</NavLink>
+            <NavLink     onClick={()=>setOpenMenu(!openMenu)} to="/dashboard" className="text-lg hover:text-blue-600"><span className='text-text'>-</span> Admin Dashboard</NavLink>
+            <NavLink     onClick={()=>setOpenMenu(!openMenu)} to="/all-employee-list" className="text-lg hover:text-blue-600"><span className='text-text'>-</span> Employee list</NavLink>
+            <NavLink     onClick={()=>setOpenMenu(!openMenu)} to="/payroll" className="text-lg hover:text-blue-600"><span className='text-text'>-</span> User Management</NavLink>
             <NavLink     onClick={()=>setOpenMenu(!openMenu)} to="/admin/reports" className="text-lg hover:text-blue-600">
-              Reports 
+              <span className='text-text'>-</span> Reports 
             </NavLink>
 
           </div>
         )}
         {userRole === 'hr' && (
           <div className="flex flex-col gap-4 mt-6">
-            <NavLink     onClick={()=>setOpenMenu(!openMenu)} to="/dashboard" className="text-lg hover:text-blue-600">Dashboard</NavLink>
-            <NavLink     onClick={()=>setOpenMenu(!openMenu)} to="/employeelist" className="text-lg hover:text-blue-600">Employee</NavLink>
-            <NavLink     onClick={()=>setOpenMenu(!openMenu)} to="/analytics" className="text-lg hover:text-blue-600">Progress</NavLink>
+            <NavLink     onClick={()=>setOpenMenu(!openMenu)} to="/dashboard" className="text-lg hover:text-blue-600"><span className='text-text'>-</span> Dashboard</NavLink>
+            <NavLink     onClick={()=>setOpenMenu(!openMenu)} to="/employeelist" className="text-lg hover:text-blue-600"><span className='text-text'>-</span> Employee</NavLink>
+            <NavLink     onClick={()=>setOpenMenu(!openMenu)} to="/analytics" className="text-lg hover:text-blue-600"><span className='text-text'>-</span> Progress</NavLink>
           </div>
         )}
         {userRole === 'employee' && user && (
           <div className="flex flex-col gap-4 mt-6 w-full">
-            <NavLink     onClick={()=>setOpenMenu(!openMenu)} to="/dashboard" className="text-lg hover:text-blue-600">Dashboard</NavLink>
-            <NavLink     onClick={()=>setOpenMenu(!openMenu)} to="/payment-history" className="text-lg hover:text-blue-600">Payment History</NavLink>
-            <NavLink     onClick={()=>setOpenMenu(!openMenu)} to="/worksheet" className="text-lg hover:text-blue-600">Worksheet</NavLink>
+            <NavLink     onClick={()=>setOpenMenu(!openMenu)} to="/dashboard" className="text-lg hover:text-blue-600"><span className='text-text'>-</span> Dashboard</NavLink>
+            <NavLink     onClick={()=>setOpenMenu(!openMenu)} to="/payment-history" className="text-lg hover:text-blue-600"><span className='text-text'>-</span> Payment History</NavLink>
+            <NavLink     onClick={()=>setOpenMenu(!openMenu)} to="/worksheet" className="text-lg hover:text-blue-600"><span className='text-text'>-</span> Worksheet</NavLink>
           </div>
         )}
         <div className="flex flex-col gap-4 mt-6 border-t pt-4">
