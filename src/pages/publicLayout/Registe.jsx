@@ -80,12 +80,12 @@ const Registration = ({ toggleToLogin }) => {
     }
 
     return (
-        <div className="flex justify-center items-center flex-col ">
-            <div className=' w-full md:w-max  my-10 rounded p-4  shadow-md'>
+        <div className="flex justify-center items-center flex-col capitalize bg-gradient-to-tr from-main to-transparent ">
+            <div className=' w-[90%]  md:w-max  my-10 rounded md:p-6  shadow-md border'>
                 <h1 className='w-full text-center text-2xl my-1'>Register</h1>
                 <form onSubmit={handleRegistration} className='flex mx-auto w-[90%] md:w-[500px] justify-center items-center flex-col gap-3'>
 
-                    <div className='flex justify-center items-center '>
+                    <div className='flex justify-start md:justify-center items-start flex-col md:flex-row w-full '>
                         <div className='w-full flex justify-start items-start flex-col  p-1'>
                             <label>Name:</label>
                             <input
@@ -94,7 +94,7 @@ const Registration = ({ toggleToLogin }) => {
                                 onChange={(e) => setName(e.target.value)}
                                 placeholder='Name'
                                 required
-                                className='w-full py-1 px-2 rounded border placeholder:text-[lightgray]'
+                                className='w-full py-2 px-2 rounded border placeholder:text-[lightgray]'
                             />
                         </div>
 
@@ -106,12 +106,12 @@ const Registration = ({ toggleToLogin }) => {
                                 onChange={(e) => setEmail(e.target.value)}
                                 required
                                 placeholder='Email'
-                                className='w-full py-1 px-2 rounded border placeholder:text-[lightgray]'
+                                className='w-full py-2 px-2 rounded border placeholder:text-[lightgray]'
                             />
                         </div>
                     </div>
 
-                    <div className='flex w-full justify-center items-center '>
+                    <div className='flex justify-start md:justify-center items-start flex-col md:flex-row w-full  '>
                         <div className='w-full flex justify-start items-start flex-col  p-1'>
                             <label>Password:</label>
                             <input
@@ -120,7 +120,7 @@ const Registration = ({ toggleToLogin }) => {
                                 onChange={(e) => setPassword(e.target.value)}
                                 required
                                 placeholder='Password'
-                                className='w-full py-1 px-2 rounded border placeholder:text-[lightgray]'
+                                className='w-full py-2 px-2 rounded border placeholder:text-[lightgray]'
                             />
                         </div>
                         <div className='w-full flex justify-start items-start flex-col  p-1'>
@@ -131,12 +131,12 @@ const Registration = ({ toggleToLogin }) => {
                                 onChange={(e) => setDesignation(e.target.value)}
                                 required
                                 placeholder='Designation'
-                                className='w-full py-1 px-2 rounded border placeholder:text-[lightgray]'
+                                className='w-full py-2 px-2 rounded border placeholder:text-[lightgray]'
                             />
                         </div>
                     </div>
                     {/*  */}
-                    <div className='flex w-full justify-center items-center '>
+                    <div className='flex justify-start md:justify-center items-start flex-col md:flex-row w-full '>
                         <div className='w-full flex justify-start items-start flex-col  p-1'>
                             <label>salary:</label>
                             <input
@@ -145,7 +145,7 @@ const Registration = ({ toggleToLogin }) => {
                                 onChange={(e) => setSalary(e.target.value)}
                                 required
                                 placeholder='salary'
-                                className='w-full py-1 px-2 rounded border placeholder:text-[lightgray]'
+                                className='w-full py-2 px-2 rounded border placeholder:text-[lightgray]'
                             />
                         </div>
                         <div className='w-full flex justify-start items-start flex-col  p-1'>
@@ -156,16 +156,15 @@ const Registration = ({ toggleToLogin }) => {
                                 onChange={(e) => setbankAccountNo(e.target.value)}
                                 required
                                 placeholder='bankAccountNo'
-                                className='w-full py-1 px-2 rounded border placeholder:text-[lightgray]'
+                                className='w-full py-2 px-2 rounded border placeholder:text-[lightgray]'
                             />
                         </div>
                     </div>
 
-                    {/*  */}
                         <div className='w-full flex justify-start items-start flex-col  p-1'>
                             <label>Role:</label>
                             <select value={role} onChange={(e) => setRole(e.target.value)}
-                                className='w-full py-1 px-2 rounded border '
+                                className='w-full py-2 px-2 rounded border '
                             >
                                 <option value="employee">Employee</option>
                                 <option value="hr">HR</option>
@@ -178,7 +177,7 @@ const Registration = ({ toggleToLogin }) => {
                         <label>Profile Picture:</label>
                         <input
                             placeholder='Password'
-                            className='w-full py-1 px-2 rounded border placeholder:text-[lightgray] '
+                            className='w-full py-2 px-2 rounded border placeholder:text-[lightgray] '
                             type="file"
                             accept="image/*"
                             onChange={(e) => setPhoto(e.target.files[0])}
@@ -192,11 +191,11 @@ const Registration = ({ toggleToLogin }) => {
                             ))}
                         </div>
                     )}
-                    <button type="submit" className='border  w-full py-2 px-4 rounded bg-main'>Register</button>
+                    <button type="submit" className='border  w-full py-2 px-4 rounded bg-text text-white'>Register</button>
                 </form>
 
-                <button onClick={handleGoogleLogin}  className='border  w-full py-2 px-4 rounded bg-mn text-white'>Login with google</button>
-                <NavLink to="/login" >
+                <button onClick={handleGoogleLogin}  className='border   py-2 px-4 rounded bg-main  text-text my-3 w-max '>Login with google</button>
+                <NavLink to="/login" className="text-end w-full block my-2" >
                     Already have an account? <span className='text-blue-400' >Login here</span>
                 </NavLink>
            </div>

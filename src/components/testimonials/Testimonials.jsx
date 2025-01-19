@@ -35,13 +35,9 @@ const testimonialsData = [
 const Testimonials = () => {
     // State to handle the current testimonial index
     const [currentIndex, setCurrentIndex] = useState(0);
-
-    // Function to go to the next testimonial
     const nextTestimonial = () => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonialsData.length);
     };
-
-    // Function to go to the previous testimonial
     const prevTestimonial = () => {
         setCurrentIndex(
             (prevIndex) => (prevIndex - 1 + testimonialsData.length) % testimonialsData.length
@@ -54,10 +50,8 @@ const Testimonials = () => {
         <section className="py-16 bg-gray-50">
             <div className="container mx-auto px-6 text-center">
                 <h2 className="text-3xl font-bold text-gray-800 mb-8">What Our Clients Say</h2>
-
-                {/* Testimonial Slider */}
                 <div className="relative">
-                    {/* Testimonial Card */}
+
                     <div className="bg-white p-8 rounded-lg shadow-lg max-w-3xl mx-auto">
                         <div className="flex justify-center mb-4">
                             <img
@@ -69,20 +63,20 @@ const Testimonials = () => {
                         <p className="text-lg text-gray-600 italic mb-4">
                             "{currentTestimonial.feedback}"
                         </p>
-                        <p className="font-semibold text-gray-800">{currentTestimonial.name}</p>
+                        <p className="font-semibold text-text">{currentTestimonial.name}</p>
                         <p className="text-gray-500">{currentTestimonial.position}</p>
                     </div>
 
                     {/* Navigation Buttons */}
                     <button
                         onClick={prevTestimonial}
-                        className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full"
+                        className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-main w-10 h-10 flex justify-center items-center text-white p-2 rounded-full"
                     >
                         &#8592;
                     </button>
                     <button
                         onClick={nextTestimonial}
-                        className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full"
+                        className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-main w-10 h-10 flex justify-center items-center text-white p-2 rounded-full"
                     >
                         &#8594;
                     </button>

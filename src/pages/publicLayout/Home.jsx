@@ -44,23 +44,7 @@ const Home = ({ user }) => {
       <Banner/>
 
       
-      <Services/>
-
-      {/* Admin or HR Specific Content */}
-      {role === 'admin' && (
-        <section className="py-20 bg-gray-200 text-center">
-          <h2 className="text-3xl font-bold">Admin Dashboard</h2>
-          <p>Welcome to the Admin Dashboard. Here you can manage users, view reports, and configure settings.</p>
-        </section>
-      )}
-
-      {role === 'hr' && (
-        <section className="py-20 bg-gray-200 text-center">
-          <h2 className="text-3xl font-bold">HR Dashboard</h2>
-          <p>Welcome to the HR Dashboard. Here you can manage employees and monitor workplace analytics.</p>
-        </section>
-      )}
-     
+      <Services/>   
      
       <Testimonials/>
       <Features/>

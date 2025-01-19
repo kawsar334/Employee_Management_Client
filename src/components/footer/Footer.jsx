@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -20,21 +21,21 @@ const Footer = () => {
                 <a href="#services" className="text-gray-400 hover:text-indigo-500">Services</a>
               </li>
               <li className="mb-2">
-                <a href="#about" className="text-gray-400 hover:text-indigo-500">About</a>
+                <NavLink to="/" className="text-gray-400 hover:text-indigo-500">About</NavLink>
               </li>
               <li className="mb-2">
                 <a href="#contact" className="text-gray-400 hover:text-indigo-500">Contact</a>
               </li>
               <li className="mb-2">
-                <a href="#signup" className="text-gray-400 hover:text-indigo-500">Sign Up</a>
+                <NavLink to="/register" className="text-gray-400 hover:text-indigo-500">Sign Up</NavLink>
               </li>
             </ul>
           </div>
           <div>
             <h3 className="text-2xl font-semibold mb-4">Contact</h3>
-            <p className="text-gray-400 mb-2">1234 Employee Rd, HR City, 56789</p>
-            <p className="text-gray-400 mb-2">Phone: +1 234 567 890</p>
-            <p className="text-gray-400">Email: support@company.com</p>
+            <p className="text-gray-400 mb-2">1234 Taif, Soudi arabia, </p>
+            <p className="text-gray-400 mb-2">Phone: +966509325731</p>
+            <p className="text-gray-400">Email: kawsarfiroz11@gmail.com</p>
           </div>
         </div>
         <div className="mt-8 border-t border-gray-700 pt-4 text-center">

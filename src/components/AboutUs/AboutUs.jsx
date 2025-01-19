@@ -39,10 +39,10 @@ const Team = () => {
                             <img
                                 src={member.image}
                                 alt={member.name}
-                                className="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
+                                className="w-32 h-32 border-2 border-text rounded-full mx-auto mb-4 object-cover"
                             />
-                            <h3 className="text-xl font-semibold text-gray-800">{member.name}</h3>
-                            <p className="text-gray-500">{member.position}</p>
+                            <h3 className="text-xl font-semibold text-main">{member.name}</h3>
+                            <p className="text-gray-500 first-letter:text-text">{member.position}</p>
                         </div>
                     ))}
                 </div>

@@ -13,9 +13,9 @@ const Navbar = () => {
 
 
   return (
-    <nav className="bg-blue-800 text-white p-4 sticky top-0 left-0 z-40 shadow-lg">
+    <nav className="bg-main text-text p-4 sticky top-0 left-0 z-40 shadow-lg">
       <div className="container mx-auto flex justify-between items-center">
-        <NavLink to="/" className="text-2xl font-bold">Noukori.com</NavLink>
+        <NavLink to="/" className="text-3xl font-bold text-text ">Noukori <span className="text-white">Gulf</span></NavLink>
         <div className="hidden md:flex space-x-6 items-center">
           <NavLink to="/contact" className="text-lg hover:text-gray-300">Contact</NavLink>
           {userRole === 'admin' && (
@@ -51,14 +51,6 @@ const Navbar = () => {
 
         </button>
       </div>
-      {/* <div id="mobile-menu" className="hidden  md:flex flex-col space-y-4 mt-4 ">
-        {userRole === 'admin' && <NavLink     onClick={()=>setOpenMenu(!openMenu)} to="/dashboard" className="text-lg">Dashboard</NavLink>}
-        {userRole === 'hr' && <NavLink     onClick={()=>setOpenMenu(!openMenu)} to="/dashboard" className="text-lg">Dashboard</NavLink>}
-        {userRole === 'employee' && user && <NavLink     onClick={()=>setOpenMenu(!openMenu)} to="/dashboard" className="text-lg">Dashboard</NavLink>}
-
-      </div> */}
-
-      {/* sidebar  */}
 
       {openMenu &&<div className="bg-white md:hidden rounded text-gray-500 p-5 w-full md:w-72 h-screen shadow-lg sticky left-0 top-[500px] my-10 ">
         <h1 className="text-xl font-bold text-gray-700 mb-6 capitalize"> <i className="fas fa-tasks text-green-500 mr-2 hidden"></i> {user?.displayName}</h1>

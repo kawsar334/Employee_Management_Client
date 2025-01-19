@@ -3,13 +3,13 @@ import React, { useState } from "react";
 const sliderData = [
     {
         id: 1,
-        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRu4pGpS_rb-5LLzV-XFYeC7MO86OOKFMQLRg&s",
+        image: "https://kfkit.rometheme.pro/brite/wp-content/uploads/sites/45/2023/02/portrait-of-an-attractive-young-businesswoman-smil-T74BGJA2.png",
         title: "Employee Workflow Monitoring",
         description: "Track employee workload and performance with ease using our employee management system.",
     },
     {
         id: 2,
-        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGT1djMEnXcrgY8NcxjOypKFkwtPtFMzXmMA&s",
+        image: "https://kfkit.rometheme.pro/brite/wp-content/uploads/sites/45/2023/02/job-interview-24LCA7E.jpg",
         title: "Salary Management",
         description: "Efficiently manage employee salaries, deductions, and payments in one place.",
     },
@@ -53,7 +53,7 @@ const BannerCarousel = () => {
     };
 
     return (
-        <div className="relative w-full bg-gray-100  h-[400px] ">
+        <div className="relative w-full bg-gray-100  h-[500px] " >
             {/* Carousel Container */}
             <div className="relative h-full">
                 {/* Slide */}
@@ -63,10 +63,10 @@ const BannerCarousel = () => {
                         alt={sliderData[currentIndex].title}
                         className="w-full h-full object-cover  "
                     />
-                    <div className="absolute top-0 left-0 right-0 h-full bg-gradient-to-t from-black to-transparent p-4 text-white flex justify-center items-center flex-col gap-3">
-                        <h2 className="text-xl font-semibold">{sliderData[currentIndex].title}</h2>
+                    <div className="absolute top-0 left-0 right-0 h-full bg-gradient-to-t from-main to-transparent p-4 text-white flex justify-center items-center flex-col gap-3">
+                        <h2 className="text-3xl md:text-5xl font-semibold text-text ">{sliderData[currentIndex].title}</h2>
                         <p className="text-sm mt-2">{sliderData[currentIndex].description}</p>
-                        <button className="flex justify-center items-center border px-3 py-1 rounded ">
+                        <a href="#services" className="flex justify-center items-center border px-3 py-1 rounded ">
                             Learn More
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -80,7 +80,7 @@ const BannerCarousel = () => {
                             >
                                 <path d="M12 19.59L19.59 12 12 4.41 4.41 12 12 19.59z" />
                             </svg>
-                        </button>
+                        </a>
                     </div>
                 </div>
 

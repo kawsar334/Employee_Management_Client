@@ -29,14 +29,14 @@ const ContactUs = () => {
     };
 
     return (
-        <div className="flex justify-center items-center gap-4 flex-col min-h-screen bg-gray-100 py-8">
-            <h1 className="text-4xl font-semibold text-center mb-6 text-indigo-600">Contact Us</h1>
-            <div className="bg-white shadow-lg rounded-lg p-6 w-full max-w-2xl mx-auto">
+        <div className="flex justify-center items-center gap-4 flex-col  bg-white  py-8">
+            <h1 className="text-4xl font-semibold text-center mb-6 text-main">Contact Us</h1>
+            <div className="bg-white shadow rounded-lg p-6 w-full max-w-2xl mx-auto">
 
                 <div className="mb-8 text-gray-600">
-                    <h2 className="text-2xl font-semibold text-indigo-500 mb-4">Company Information</h2>
-                    <p><strong>Address:</strong> 123 Dummy Street, Some City, Some Country</p>
-                    <p><strong>Email:</strong> Noukori@gmail.com</p>
+                    <h2 className="text-2xl font-semibold text-main mb-4">Our Information</h2>
+                    <p><strong>Address:</strong> Taif , soudi arabia,</p>
+                    <p><strong>Email:</strong> kawsarfiroz11@gmail.com</p>
                     <p><strong>Phone:</strong> +966509325731</p>
                 </div>
 
@@ -44,10 +44,11 @@ const ContactUs = () => {
                     <label className="text-gray-700 font-medium">Email:</label>
                     <input
                         type="email"
+                        placeholder='Email'
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         required
-                        className="border px-4 py-2 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 w-full"
+                        className="border px-4 py-2 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-text w-full"
                     />
 
                     <label className="text-gray-700 font-medium">Message:</label>
@@ -55,12 +56,13 @@ const ContactUs = () => {
                         value={message}
                         onChange={(e) => setMessage(e.target.value)}
                         required
-                        className="border px-4 py-2 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 w-full h-32"
+                        placeholder='Message'
+                        className="border px-4 py-2 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-text w-full h-32"
                     ></textarea>
 
                     <button
                         type="submit"
-                        className="w-full py-2 px-4 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                        className="w-full py-2 px-4 bg-text text-white font-semibold rounded-lg shadow-md hover:bg-main transition-all duration-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                     >
                         Send Message
                     </button>
