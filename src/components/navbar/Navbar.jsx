@@ -17,7 +17,9 @@ const Navbar = () => {
       <div className="container mx-auto flex justify-between items-center">
         <NavLink to="/" className="text-3xl font-bold text-text ">Noukori <span className="text-white">Gulf</span></NavLink>
         <div className="hidden md:flex space-x-6 items-center">
+          <NavLink to="/" className="text-lg hover:text-gray-300">Home</NavLink>
           <NavLink to="/contact" className="text-lg hover:text-gray-300">Contact</NavLink>
+
           {userRole === 'admin' && (
             <NavLink to="/dashboard" className="text-lg hover:text-gray-300">Dashboard</NavLink>
           )}
@@ -92,13 +94,13 @@ const Navbar = () => {
               <NavLink    onClick={()=>setOpenMenu(!openMenu)} to="/register" className="text-lg hover:text-gray-300">Register</NavLink>
             </>
           ) : (
-            <div className="flex items-center space-x-3">
+            <div className="flex items-center space-x-3 my-2">
               <img
                 src={user?.photoURL}
                 alt="User"
-                className="w-10 h-10 rounded-full border-2 object-cover hidden"
+                className="w-10 h-10 rounded-full border-2 object-cover "
               />
-              <button onClick={signOutUser} className="text-lg hover:text-gray-300">Logout</button>
+              <button onClick={signOutUser} className="text-lg  hover:text-gray-300">Logout</button>
             </div>
           )}
         </div>
