@@ -33,7 +33,6 @@ const Login = ({ toggleToRegister }) => {
         navigate('/dashboard')
         setTimeout(() => {
           window.location.reload();
-          
         }, 6000);
       }else{
         navigate('/login')
