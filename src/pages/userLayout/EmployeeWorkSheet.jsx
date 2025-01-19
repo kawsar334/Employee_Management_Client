@@ -94,9 +94,9 @@ const EmployeeWorkSheet = () => {
     }
 
     return (
-       <div className='flex justify-start'>
+       <div className='flex justify-start items-center h-screen  overflow-x-auto '>
             <Sidebar/>
-            <div className=" sm:p-10 bg-gray-100  min-h-screen">
+            <div className=" p-4 bg-gray-100 h-max ">
                 <h1 className="text-2xl font-semibold text-gray-700 mb-6">Work Sheet</h1>
                 <form
                     onSubmit={handleSubmit}
@@ -124,7 +124,7 @@ const EmployeeWorkSheet = () => {
                         onChange={(date) => setForm({ ...form, date })}
                         className="w-full sm:w-auto p-2 border rounded-md"
                     />
-                    <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded-md">
+                    <button type="submit" className="bg-text text-white px-4 py-2 rounded-md">
                         Add / Submit
                     </button>
                 </form>
@@ -132,14 +132,14 @@ const EmployeeWorkSheet = () => {
                 {tasks.length === 0 ? (<div className='w-full h-[400px] justify-center items-center flex  text-3xl '>
 
                     <h1>No work added yet</h1>
-                </div>) : <table className="w-full mt-6 bg-white shadow-md rounded-lg overflow-hidden">
-                    <thead className="bg-blue-500 text-white">
+                </div>) : <table className="w-full md:mt-6 bg-white shadow-md rounded-lg overflow-hidden">
+                    <thead className="bg-main text-white text-start">
                         <tr>
-                            <th className="p-3">Task</th>
-                            <th className="p-3">Hours Worked</th>
-                            <th className="p-3">Date</th>
-                            <th className="p-3">Edit</th>
-                            <th className="p-3">Delete</th>
+                            <th className="p-3 text-start">Task</th>
+                            <th className="p-3 text-start">Hours Worked</th>
+                            <th className="p-3 text-start">Date</th>
+                            <th className="p-3 text-start">Edit</th>
+                            <th className="p-3 text-start">Delete</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -152,7 +152,7 @@ const EmployeeWorkSheet = () => {
                                     <td className="p-3 text-center">
                                         <button
                                             onClick={() => handleEdit(task)}
-                                            className="text-blue-500 hover:underline"
+                                            className="text-white bg-teal p-1 rounded hover:underline"
                                         >
                                             Edit
                                         </button>
@@ -202,7 +202,7 @@ const EmployeeWorkSheet = () => {
                     >
                         Next
                     </button>
-                </div>;
+                </div>
                 {/*  */}
 
                 {modalData && (

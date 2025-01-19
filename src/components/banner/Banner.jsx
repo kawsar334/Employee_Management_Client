@@ -87,13 +87,13 @@ const BannerCarousel = () => {
                 {/* Navigation Buttons */}
                 <button
                     onClick={prevSlide}
-                    className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-black text-white p-2 rounded-full shadow-md hover:bg-gray-700"
+                    className="absolute top-1/2 left-4 transform -translate-y-1/2 w-10 h-10 bg-black text-white p-2 rounded-full shadow-md hover:bg-gray-700"
                 >
                     &#60;
                 </button>
                 <button
                     onClick={nextSlide}
-                    className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-black text-white p-2 rounded-full shadow-md hover:bg-gray-700"
+                    className="absolute top-1/2 right-4 transform -translate-y-1/2 w-10 h-10 bg-black text-white p-2 rounded-full shadow-md hover:bg-gray-700"
                 >
                     &#62;
                 </button>

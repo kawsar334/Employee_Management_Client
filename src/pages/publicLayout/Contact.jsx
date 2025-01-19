@@ -31,7 +31,7 @@ const ContactUs = () => {
     return (
         <div className="flex justify-center items-center gap-4 flex-col  bg-white  py-8">
             <h1 className="text-4xl font-semibold text-center mb-6 text-main">Contact Us</h1>
-            <div className="bg-white shadow rounded-lg p-6 w-full max-w-2xl mx-auto">
+            <div className= "bg-gradient-to-t from-main to-transparent shadow rounded-lg p-6 w-full max-w-2xl mx-auto">
 
                 <div className="mb-8 text-gray-600">
                     <h2 className="text-2xl font-semibold text-main mb-4">Our Information</h2>

@@ -23,28 +23,28 @@ import EmployeeList from '../../components/hrcomponents/EmployeeLists';
 import axios from 'axios';
 
 const HrDashboard = () => {
-    const [admin, setAdmin] = useState([]);
-    const [users,setUsers] = useState([]);
-    const [fired, setfired] = useState([]);
-    useEffect(()=>{
-      const users = async()=>{
-        try{
-          const res = await axios.get("https://employee-one-coral.vercel.app/api/user/userList",{
-            withCredentials:true
-          });
-          console.log(res.data.data);
-          setUsers(res.data.data);
-          // const hrr = res.data.data.filter((item)=>item.role === "hr");
-          const emp = res.data.data.filter((item) => item.isFired === true);
-          console.log(emp)
-          setfired(res.data.data.filter((item) => item.isFired === true))
-          setAdmin(res.data.data.filter((item) => item.role === "admin"))
-        }catch(err){
-          console.log(err); 
-        }
+  const [admin, setAdmin] = useState([]);
+  const [users, setUsers] = useState([]);
+  const [fired, setfired] = useState([]);
+  useEffect(() => {
+    const users = async () => {
+      try {
+        const res = await axios.get("https://employee-one-coral.vercel.app/api/user/userList", {
+          withCredentials: true
+        });
+        console.log(res.data.data);
+        setUsers(res.data.data);
+        // const hrr = res.data.data.filter((item)=>item.role === "hr");
+        const emp = res.data.data.filter((item) => item.isFired === true);
+        console.log(emp)
+        setfired(res.data.data.filter((item) => item.isFired === true))
+        setAdmin(res.data.data.filter((item) => item.role === "admin"))
+      } catch (err) {
+        console.log(err);
       }
-      users();
-    },[])
+    }
+    users();
+  }, [])
   return (
     <div className="w-full  flex bg-gray-100">
 
@@ -85,11 +85,11 @@ const HrDashboard = () => {
             </div> */}
           </div>
 
-<div className='my-10'>
+          <div className='my-10'>
 
-        <EmployeeList/>
-</div>
-         
+            <EmployeeList />
+          </div>
+
         </div>
       </div>
     </div>
