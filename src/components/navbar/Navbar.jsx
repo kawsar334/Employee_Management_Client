@@ -23,7 +23,7 @@ const Navbar = () => {
           {userRole === 'admin' && (
             <NavLink to="/dashboard" className="text-lg hover:text-gray-300">Dashboard</NavLink>
           )}
-          {user&&<NavLink to="/profile" className="text-white capitalize">{user?.displayName}</NavLink>}
+          {user&&<NavLink to="/profile" className="text-white capitalize font-semibold cursor-pointer hover:text-blue-500">{user?.displayName}</NavLink>}
           {userRole === 'hr' && (
             <NavLink to="/dashboard" className="text-lg hover:text-gray-300">Dashboard</NavLink>
           )}
@@ -37,11 +37,14 @@ const Navbar = () => {
             </>
           ) : (
             <div className="flex items-center space-x-3">
+              <NavLink to="/profile">
+
               <img
                 src={user?.photoURL}
                 alt="User"
                 className="w-10 h-10 rounded-full border-2 object-cover"
-              />
+                />
+                </NavLink>
               <button onClick={signOutUser} className="text-lg hover:text-gray-300">Logout</button>
             </div>
           )}
@@ -95,12 +98,14 @@ const Navbar = () => {
               <NavLink    onClick={()=>setOpenMenu(!openMenu)} to="/register" className="text-lg hover:text-gray-300">Register</NavLink>
             </>
           ) : (
-            <div className="flex items-center space-x-3 my-2">
+              <div className="flex items-center space-x-3 my-2" onClick={() => setOpenMenu(!openMenu)}>
+                <NavLink to="/profile">
               <img
                 src={user?.photoURL}
                 alt="User"
                 className="w-10 h-10 rounded-full border-2 object-cover "
               />
+                </NavLink>
               <button onClick={signOutUser} className="text-lg  hover:text-gray-300">Logout</button>
             </div>
           )}
