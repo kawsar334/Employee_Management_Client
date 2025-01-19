@@ -31,11 +31,14 @@ This is the frontend of the project, built using modern web development technolo
 ---
 
 ## Links  
-- **Live API**: [Live Backend Link](https://reliable-eclair-d8edc7.netlify.app/)  
+- **API**:
+ [LIVE LINK](https://reliable-eclair-d8edc7.netlify.app/)   
 
-- **Frontend GitHub Repository**: [Frontend Repository Link](https://github.com/Programming-Hero-Web-Course4/b10a12-client-side-kawsar334)  
+- **Frontend GitHub Repository**: [Frontend Repository Link](https://github.com/Programming-Hero-Web-Course4/b10a12-client-side-kawsar334) 
+
 - **Backend GitHub Repository**: [Backend Repository Link](https://github.com/Programming-Hero-Web-Course4/b10a12-server-side-kawsar334)  
-
+ 
+---
 ---
 
 ## Getting Started  
