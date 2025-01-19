@@ -19,7 +19,7 @@ const EmployeeList = () => {
   const {user,} = useContext(AuthContext);
   const [amount, setAmount] = useState(0)
   const [stripeToken, setStripeToken] = useState(null)
-  const sechret_key = "sk_test_51KGo0XHG7qACO4ZlS6Hm3ub6wHLCBzoHwqSNUtYcmLNodxaaRRL5JWzOJpoBvnJ3Lxv8RzcpKB9optVeAoQ23ASy00pkyoRJCy"
+  
   const publishable_key = "pk_test_51KGo0XHG7qACO4ZleQqv0XtS5T9ryIsssF6WRliEaQZOJ0sVZm5TSes4uQVS9bSuAKyjeysqnUD8DFgNDGxJF8oC002HOxI3YC"
 
   useEffect(() => {
@@ -100,12 +100,9 @@ const sendMoney=async()=>{
   return (
     <div className='flex '>
      
-      <div className="max-w-6xl mx-auto p-6 bg-white shadow-md rounded-md ">
+      <div className="max-w-6xl mx-auto p-6 bg-white rounded-md ">
         <h2 className="text-2xl font-semibold text-gray-800 mb-4">Employee List</h2>
-
-     
-
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto ">
           <table className="w-full border border-gray-200 rounded-lg ">
             <thead className="bg-gray-100 text-gray-700">
               <tr>
@@ -141,15 +138,15 @@ const sendMoney=async()=>{
                       <button
                         onClick={() => openModal(employee)}
                         disabled={!employee.isVerified}
-                        className={`px-4 py-2 rounded ${employee.isVerified
-                          ? 'bg-blue-500 text-white hover:bg-blue-600'
+                        className={`px-4 py-1 rounded ${employee.isVerified
+                          ? 'bg-main text-white hover:bg-text'
                           : 'bg-gray-400 text-gray-700 cursor-not-allowed'
                           }`}
                       >
                         Pay
                       </button>
 
-                      <button className="border bg-[#4CAF50] text-white p-1 rounded" onClick={() => setAmount(employee.salary)}>
+                      <button className="border bg-[#4CAF50] hover:bg-text text-white p-1 rounded" onClick={() => setAmount(employee.salary)}>
                         <StripeCheckout
                           name={user?.displayName}
                           image={user?.photoURL}

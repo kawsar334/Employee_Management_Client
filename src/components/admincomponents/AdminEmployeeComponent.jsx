@@ -137,7 +137,7 @@ const AdminEmployeeListComponent = () => {
 
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
     return (
-        <div className="md:w-[1000px] w-full px-4 py-6 overflow-x-scroll  md:overflow-x-auto  ">
+        <div className="md:w-[1000px]  w-full px-0 md:px-4 py-6 overflow-x-scroll  md:overflow-x-auto     ">
             <div className="text-center mb-4 flex justify-center items-center gap-4">
                 <h2 className="text-2xl font-semibold text-center mb-4">All Employees</h2>
                 <button
@@ -158,7 +158,7 @@ const AdminEmployeeListComponent = () => {
                 </button>
             </div>
             <div className=" w-screen md:w-full">
-                {viewMode === 'table' ? <table className="table-auto   border border-gray-200 shadow-sm text-center text-sm lg:text-base">
+                {viewMode === 'table' ? <table className="table-auto w-full    border border-gray-200 shadow-sm text-center text-sm lg:text-base">
                     <thead className="bg-gray-100">
                         <tr>
                             <th className="px-4 py-2 border">Name</th>

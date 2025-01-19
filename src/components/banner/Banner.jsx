@@ -66,7 +66,7 @@ const BannerCarousel = () => {
                     <div className="absolute top-0 left-0 right-0 h-full bg-gradient-to-t from-main to-transparent p-4 text-white flex justify-center items-center flex-col gap-3">
                         <h2 className="text-3xl md:text-5xl font-semibold text-text ">{sliderData[currentIndex].title}</h2>
                         <p className="text-sm mt-2">{sliderData[currentIndex].description}</p>
-                        <a href="#services" className="flex justify-center items-center border px-3 py-1 rounded ">
+                        <a href="#services" className="flex justify-center items-center border bg-text hover:bg-main transition-all duration-500 px-3 py-1 rounded ">
                             Learn More
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"

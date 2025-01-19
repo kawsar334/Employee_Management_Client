@@ -32,10 +32,9 @@ const AdminDashboard = () => {
   },[])
   return (
     <div className="flex justify-start gap-3  bg-gray-100 w-full">
-      {/* Sidebar */}
       <Sidebar />
 
-      {/* Main Content */}
+     
       <div className="flex-1 p-">
         <header className="flex justify-between items-center mb-6">
           <h1 className="text-2xl font-semibold">Admin Dashboard</h1>

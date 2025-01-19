@@ -69,12 +69,12 @@ const HrDashboard = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Stats Cards */}
             <div className="bg-white p-6 rounded shadow-sm text-center">
-              <i className="fas fa-users text-blue-500 text-3xl mb-4"></i>
+              <i className="fas fa-users text-main text-3xl mb-4"></i>
               <h3 className="text-gray-500">Total Employees</h3>
               <p className="text-2xl font-bold">{users?.length}</p>
             </div>
             <div className="bg-white p-6 rounded shadow-sm text-center">
-              <i className="fas fa-clipboard-list text-green-500 text-3xl mb-4"></i>
+              <i className="fas fa-clipboard-list text-main text-3xl mb-4"></i>
               <h3 className="text-gray-500">Admin</h3>
               <p className="text-2xl font-bold">{admin.length}</p>
             </div>
