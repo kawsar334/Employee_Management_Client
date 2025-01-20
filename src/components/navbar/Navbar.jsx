@@ -85,7 +85,7 @@ const Navbar = () => {
             <NavLink     onClick={()=>setOpenMenu(!openMenu)} to="/worksheet" className="text-lg hover:text-blue-600"><span className='text-text'>-</span> Worksheet</NavLink>
           </div>
         )}
-        <div className="flex flex-col gap-4 mt-6 border-t pt-4">
+        <div className="flex flex-col gap-4 mt-6  pt-4">
           <NavLink    onClick={()=>setOpenMenu(!openMenu)} to="/" className="text-lg hover:text-blue-600">Home</NavLink>
           <NavLink    onClick={()=>setOpenMenu(!openMenu)} to="/contact" className="text-lg hover:text-blue-600">Contact</NavLink>
         </div>
@@ -93,10 +93,10 @@ const Navbar = () => {
 
         <div className='md:hidden'>
           {!user ? (
-            <>
+            <div className=' flex flex-col gap-2'>
               <NavLink    onClick={()=>setOpenMenu(!openMenu)} to="/login" className="text-lg hover:text-gray-300">Login</NavLink>
               <NavLink    onClick={()=>setOpenMenu(!openMenu)} to="/register" className="text-lg hover:text-gray-300">Register</NavLink>
-            </>
+            </div>
           ) : (
               <div className="flex items-center space-x-3 my-2" onClick={() => setOpenMenu(!openMenu)}>
                 <NavLink to="/profile">

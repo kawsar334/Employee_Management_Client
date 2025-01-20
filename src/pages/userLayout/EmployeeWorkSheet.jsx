@@ -94,13 +94,13 @@ const EmployeeWorkSheet = () => {
     }
 
     return (
-       <div className='flex justify-start items-center h-screen  overflow-x-auto '>
+       <div className='flex justify-start items-start h-[600px]  overflow-x-auto   '>
             <Sidebar/>
-            <div className=" p-4 bg-gray-100 h-max ">
-                <h1 className="text-2xl font-semibold text-gray-700 mb-6">Work Sheet</h1>
+            <div className=" px-4 bg-gray-100 p-3 ">
+                <h1 className="text-2xl font-semibold text-gray-700 mb-1">Work Sheet</h1>
                 <form
                     onSubmit={handleSubmit}
-                    className="bg-white p-4 rounded-lg shadow-md flex flex-wrap gap-4 items-center"
+                    className="bg-white p-2 rounded-lg shadow-md flex flex-wrap gap-4 items-center"
                 >
                     <select
                         value={form.task}
@@ -124,7 +124,7 @@ const EmployeeWorkSheet = () => {
                         onChange={(date) => setForm({ ...form, date })}
                         className="w-full sm:w-auto p-2 border rounded-md"
                     />
-                    <button type="submit" className="bg-text text-white px-4 py-2 rounded-md">
+                    <button type="submit" className="bg-text text-white px-4 py-1 rounded-md">
                         Add / Submit
                     </button>
                 </form>
@@ -132,24 +132,24 @@ const EmployeeWorkSheet = () => {
                 {tasks.length === 0 ? (<div className='w-full h-[400px] justify-center items-center flex  text-3xl '>
 
                     <h1>No work added yet</h1>
-                </div>) : <table className="w-full md:mt-6 bg-white shadow-md rounded-lg overflow-hidden">
+                </div>) : <table className="w-full  md:mt-1 bg-white shadow-md rounded-lg ">
                     <thead className="bg-main text-white text-start">
                         <tr>
-                            <th className="p-3 text-start">Task</th>
-                            <th className="p-3 text-start">Hours Worked</th>
-                            <th className="p-3 text-start">Date</th>
-                            <th className="p-3 text-start">Edit</th>
-                            <th className="p-3 text-start">Delete</th>
+                            <th className="p-2 text-start">Task</th>
+                            <th className="p-2 text-start">Hours Worked</th>
+                            <th className="p-2 text-start">Date</th>
+                            <th className="p-2 text-start">Edit</th>
+                            <th className="p-2 text-start">Delete</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
                                 currentTasks.map((task) => (
                                 <tr key={task?._id} className="border-t">
-                                    <td className="p-3">{task?.task}</td>
-                                    <td className="p-3">{task?.hoursWorked}</td>
-                                    <td className="p-3">{new Date(task.date).toLocaleDateString()}</td>
-                                    <td className="p-3 text-center">
+                                    <td className="p-2">{task?.task}</td>
+                                    <td className="p-2">{task?.hoursWorked}</td>
+                                    <td className="p-2">{new Date(task.date).toLocaleDateString()}</td>
+                                    <td className="p-2 text-center">
                                         <button
                                             onClick={() => handleEdit(task)}
                                             className="text-white bg-teal p-1 rounded hover:underline"
@@ -157,7 +157,7 @@ const EmployeeWorkSheet = () => {
                                             Edit
                                         </button>
                                     </td>
-                                    <td className="p-3 text-center">
+                                    <td className="p-2 text-center">
                                         <button
                                             onClick={() => handleDelete(task._id)}
                                             className="text-red-500 hover:underline"

@@ -169,11 +169,11 @@ const AuthProviders = ({ children }) => {
       });
 
       const data = await response.json()
-      console.log(user)
+      console.log(data)
       if (response.ok) {
         Swal.fire("Login successful");
         setUser(user)
-        navigate("/");
+        navigate("/dashboard");
         window.location.reload();
       } else {
         navigate("/login");
@@ -181,6 +181,7 @@ const AuthProviders = ({ children }) => {
       }
       return user;
     } catch (error) {
+      console.log(error)
       console.error("Error during Google sign-in:", error);
       Swal.fire("Google sign-in failed!", "", "error");
       navigate("/login");
