@@ -3,7 +3,7 @@ import React, { useState } from "react";
 const sliderData = [
     {
         id: 1,
-        image: "https://kfkit.rometheme.pro/brite/wp-content/uploads/sites/45/2023/02/portrait-of-an-attractive-young-businesswoman-smil-T74BGJA2.png",
+        image: "https://jobhunt.madrasthemes.com/wp-content/uploads/2018/08/blog-2-836x340.jpg",
         title: "Employee Workflow Monitoring",
         description: "Track employee workload and performance with ease using our employee management system.",
     },
