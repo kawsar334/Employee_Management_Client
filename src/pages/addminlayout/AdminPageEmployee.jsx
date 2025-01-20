@@ -9,7 +9,7 @@ import AdminEmployeeListComponent from '../../components/admincomponents/AdminEm
 const AdminEmployeeList = () => {
 
     return (
-        <div className="w-full px-4 py-6 flex">
+        <div className="w-full  flex">
             <Sidebar/>
          <div>
             <AdminEmployeeListComponent/>
