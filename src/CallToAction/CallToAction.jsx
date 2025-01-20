@@ -6,7 +6,7 @@ import SocialLinks from "../components/socialLinks/SocialLinks";
 
 const CallToAction = () => {
     return (
-        <section className="py-16 bg-main opacity-100 text-white text-center h-max">
+        <section className="py-16 bg-main opacity-100 text-white text-center h-max" data-aos="zoom-in">
             <div className="container mx-auto px-6">
                 <h2 className="text-3xl font-bold mb-4">Get Started with Our Employee Management System</h2>
                 <p className="text-lg mb-6">

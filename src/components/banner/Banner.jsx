@@ -42,26 +42,22 @@ const sliderData = [
 const BannerCarousel = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
 
-    // Go to the previous slide
     const prevSlide = () => {
         setCurrentIndex((prevIndex) => (prevIndex === 0 ? sliderData.length - 1 : prevIndex - 1));
     };
-
-    // Go to the next slide
     const nextSlide = () => {
         setCurrentIndex((prevIndex) => (prevIndex === sliderData.length - 1 ? 0 : prevIndex + 1));
     };
 
     return (
-        <div className="relative w-full bg-gray-100  h-[500px] " >
-            {/* Carousel Container */}
+        <div className="relative w-full bg-gray-100  h-[500px] " data-aos="fade-up">
             <div className="relative h-full">
-                {/* Slide */}
                 <div className="w-full h-full">
                     <img
                         src={sliderData[currentIndex].image}
                         alt={sliderData[currentIndex].title}
                         className="w-full h-full object-cover  "
+                        data-aos="zoom-in"
                     />
                     <div className="absolute top-0 left-0 right-0 h-full bg-gradient-to-t from-main to-transparent p-4 text-white flex justify-center items-center flex-col gap-3">
                         <h2 className="text-3xl md:text-5xl font-semibold text-text ">{sliderData[currentIndex].title}</h2>
@@ -93,7 +89,7 @@ const BannerCarousel = () => {
                 </button>
                 <button
                     onClick={nextSlide}
-                    className="absolute top-1/2 right-4 transform -translate-y-1/2 w-10 h-10 bg-black text-white p-2 rounded-full shadow-md hover:bg-gray-700"
+                    className="absolute top-1/2 right-4 transform -translate-y-1/2 w-10 h-10 bg-black text-white p-2  rounded-full shadow-md hover:bg-gray-700"
                 >
                     &#62;
                 </button>
@@ -105,7 +101,7 @@ const BannerCarousel = () => {
                     <button
                         key={index}
                         onClick={() => setCurrentIndex(index)}
-                        className={`w-3 h-3 rounded-full ${index === currentIndex ? "bg-blue-500" : "bg-gray-300"} transition-all duration-300`}
+                        className={`w-3 h-3 rounded-full ${index === currentIndex ? "bg-text" : "bg-gray-300"} transition-all duration-300`}
                     ></button>
                 ))}
             </div>

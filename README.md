@@ -17,8 +17,8 @@
 ---
 
 ## 👤 Admin Credentials  
-- **Email**: `admin@noukorigulp.com`  
-- **Password**: `admin123`  
+- **Email**: `admin1@gmail.com`  
+- **Password**: `Admin1@`  
 ---
 
 ## Features

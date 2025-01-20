@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
+
 const ProfilePage = () => {
     const [profile, setProfile] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -25,7 +26,9 @@ const ProfilePage = () => {
     }, []);
 
     if (loading) {
-        return <div className="text-center py-20 text-gray-600">Loading profile...</div>;
+        return <div className="text-center py-20 text-gray-600">
+        
+        </div>;
     }
 
     if (!profile) {
@@ -66,7 +69,7 @@ const ProfilePage = () => {
                 </div>
                 {/* Actions */}
                 <div className="mt-6 text-center">
-                    <button className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition">
+                    <button className="bg-main text-white px-4 py-2 rounded-md hover:bg-text transition">
                         Edit Profile
                     </button>
                 </div>

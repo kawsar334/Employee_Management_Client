@@ -41,14 +41,14 @@ const servicesData = [
 
 const Services = () => {
   return (
-    <section className="py-16 " id="services">
+    <section className="py-16 " id="services" >
       <div className="container mx-auto px-6 text-center">
-        <h2 className="text-3xl font-bold text-gray-800 mb-8">
+        <h2 data-aos="zoom-out" className="text-3xl font-bold text-gray-800 mb-8">
           Our Services
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8">
           {servicesData.map((service) => (
-            <div key={service.id}  className="bg-white   p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <div data-aos="zoom-in" key={service.id}  className="bg-white   p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
               <div className="flex justify-center mb-4">
                 <img
                   src={service.icon}

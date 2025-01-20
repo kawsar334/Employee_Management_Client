@@ -7,12 +7,17 @@ import Navbar from '../../components/navbar/Navbar';
 import Footer from '../../components/footer/Footer';
 const Layout = () => {
 
-        const user= false;
-        const role = ""
+    useEffect(() => {
+        AOS.init({
+            duration: 1000, 
+            easing: "ease-in-out",
+            once: true, 
+        });
+    }, []);
  
     return (
         <div >
-            <Navbar user={user} role={role} />
+            <Navbar  />
             <Outlet />
             <Footer/>
         </div>

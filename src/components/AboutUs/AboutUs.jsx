@@ -31,11 +31,11 @@ const teamData = [
 const Team = () => {
     return (
         <section className="py-16 bg-white">
-            <div className="container mx-auto px-6 text-center">
+            <div className="container mx-auto px-6 text-center" data-aos="fade-up">
                 <h2 className="text-3xl font-bold text-gray-800 mb-8">Meet Our Team</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     {teamData.map((member) => (
-                        <div key={member.id} className="bg-gray-100 p-6 rounded-lg shadow-lg">
+                        <div key={member.id} className="bg-gray-100 p-6 rounded-lg shadow-lg" data-aos="zoom-in">
                             <img
                                 src={member.image}
                                 alt={member.name}

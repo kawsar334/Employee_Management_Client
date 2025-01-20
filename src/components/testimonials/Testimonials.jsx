@@ -51,8 +51,7 @@ const Testimonials = () => {
             <div className="container mx-auto px-6 text-center">
                 <h2 className="text-3xl font-bold text-gray-800 mb-8">What Our Clients Say</h2>
                 <div className="relative">
-
-                    <div className="bg-white p-8 rounded-lg shadow-lg max-w-3xl mx-auto">
+                    <div className="bg-white p-8 rounded-lg shadow-lg max-w-3xl mx-auto" data-aos="zoom-in">
                         <div className="flex justify-center mb-4">
                             <img
                                 src={currentTestimonial.avatar}
