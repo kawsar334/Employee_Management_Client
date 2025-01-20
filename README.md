@@ -1,70 +1,99 @@
-# fullstack employee mangement system
 
-This is the frontend of the project, built using modern web development technologies to provide a seamless and user-friendly interface.  
 
-## Table of Contents  
-- [Features](#features)  
-- [Technologies Used](#technologies-used)  
-- [Links](#links)  
-- [Getting Started](#getting-started)  
-- [Contributing](#contributing)  
-- [License](#license)  
+# Noukori Gulp
+**Noukori Gulp** is an Employee Management System designed for monitoring employee workload, maintaining records of salaries, and facilitating HR and Admin tasks. The platform supports employees to post updates, HR executives to manage workflow, and admins to oversee the system. 
 
----
 
-## Features  
-- **Responsive Design:** Optimized for both desktop and mobile devices.  
-- **Dynamic Content:** Fetches and displays data from the backend.  
-- **User Authentication:** Login and registration functionality integrated.  
-- **Interactive UI:** Includes modals, dropdowns, and smooth transitions.  
-- **Admin Panel:** For managing users, products, and orders (if applicable).  
-
----
-
-## Technologies Used  
-- **React.js**: For building the user interface.  
-- **Tailwind CSS**: For styling.  
-- **Axios**: For making HTTP requests to the backend.  
-- **JavaScript (ES6+)**: Core programming language for the frontend.  
-- **React Router DOM**: For client-side routing.  
-
----
-
+  
 ## Links  
-- **API**:
- [LIVE LINK](https://reliable-eclair-d8edc7.netlify.app/)   
+
+ -  [LIVE LINK](https://reliable-eclair-d8edc7.netlify.app/)   
 
 - **Frontend GitHub Repository**: [Frontend Repository Link](https://github.com/Programming-Hero-Web-Course4/b10a12-client-side-kawsar334) 
 
 - **Backend GitHub Repository**: [Backend Repository Link](https://github.com/Programming-Hero-Web-Course4/b10a12-server-side-kawsar334)  
  
+
 ---
+
+## 👤 Admin Credentials  
+- **Email**: `admin@noukorigulp.com`  
+- **Password**: `admin123`  
 ---
 
-## Getting Started  
+## Features
 
-To get a local copy up and running, follow these steps:  
+1. **Authentication**:  
+   - Email/password-based registration and login.  
+   - Role-specific authentication: Employee, HR, and Admin.  
+   - Social login (e.g., Google) defaults the user role to Employee.  
 
-### Prerequisites  
-Ensure you have the following installed:  
-- Node.js (v16+ recommended)  
-- npm or yarn  
+2. **Responsive Design**:  
+   - Fully optimized for mobile, tablet, and desktop views.  
 
-### Installation  
+3. **Home Page**:  
+   - Banner showcasing company success.  
+   - Services section detailing the company's offerings.  
+   - Testimonials slider.  
+   - Navbar and footer visible throughout the web app.  
 
-1. Clone the repository:  
-   ```bash  
-   git clone https://github.com/your-frontend-repo-link  
-   cd project-folder  
- ## Install  
- ```bash 
-npm install
-```
-# or  
- ```bash   
-yarn install  
-```
+4. **Employee Dashboard**:  
+   - Work-sheet form to add daily tasks and working hours.  
+   - Editable and deletable task table without page reload.  
+   - Payment history table with pagination for salaries.  
+
+5. **HR Dashboard**:  
+   - Employee list with verification toggle and salary payment modal.  
+   - Details page with a bar chart showing salary vs. month/year.  
+   - Progress page with filtering by employee and month.  
+
+6. **Admin Dashboard**:  
+   - View all employees and HRs with options to fire or promote.  
+   - Adjust employee/HR salaries (only increment allowed).  
+   - Approve and execute payments from HR.  
+
+7. **Role-Based Access Control**:  
+   - Secure route handling via JWT middleware for role-specific operations.  
+
+8. **Modern Frontend**:  
+   - State management using TanStack Query for optimized data fetching.  
+   - SweetAlert and toast notifications for all CRUD operations.  
+
+9. **Database Security**:  
+   - Environment variables to secure Firebase config keys and MongoDB credentials.  
+
+10. **Contact Us Page**:  
+    - Form for visitors to leave opinions, visible to admins.  
 
 
-Let me know if you’d like to customize it further! 😊
+---
+
+## Technologies Used
+
+### **Frontend**:  
+- React.js  
+- Tailwind CSS  
+- TanStack Query  
+- React DatePicker  
+- React Router DOM  
+- SweetAlert  
+
+### **Backend**:  
+- Node.js  
+- Express.js  
+- MongoDB  
+
+### **Authentication**:  
+- Firebase Authentication  
+- JSON Web Token (JWT)  
+
+### **Additional Libraries**:  
+
+- Axios  
+
+---
+
+
+
+
 
