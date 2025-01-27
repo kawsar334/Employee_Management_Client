@@ -17,7 +17,7 @@ const EmployeeDetails = () => {
     useEffect(() => {
         const fetchEmployeeDetails = async () => {
             try {
-                const response = await axios.get(`https://employee-one-coral.vercel.app/api/payment/getEmployeeDetails/${slug}`, {
+                const response = await axios.get(`https://server-wheat-xi.vercel.app/api/payment/getEmployeeDetails/${slug}`, {
                     withCredentials: true
                 });
                 

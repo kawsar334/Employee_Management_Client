@@ -14,7 +14,7 @@ const AdminDashboard = () => {
   useEffect(()=>{
     const users = async()=>{
       try{
-        const res = await axios.get("https://employee-one-coral.vercel.app/api/user/userList",{
+        const res = await axios.get("https://server-wheat-xi.vercel.app/api/user/userList",{
           withCredentials:true
         });
         console.log(res.data.data);

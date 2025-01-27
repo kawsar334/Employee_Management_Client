@@ -12,7 +12,7 @@ const ContactUs = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const response = await fetch('https://employee-one-coral.vercel.app/api/message/send', {
+        const response = await fetch('https://server-wheat-xi.vercel.app/api/message/send', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, message }),

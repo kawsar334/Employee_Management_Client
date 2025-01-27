@@ -14,7 +14,7 @@ function Payroll() {
 
     useEffect(() => {
         setLoading(true);
-        axios.get('https://employee-one-coral.vercel.app/api/payment/payment-history', {
+        axios.get('https://server-wheat-xi.vercel.app/api/payment/payment-history', {
             params: { page: currentPage, limit },
             withCredentials: true
         })
@@ -32,7 +32,7 @@ function Payroll() {
     // Handle Payment Execution
     const handlePayment = async (employeeId, amount, month, year) => {
         try {
-            const response = await axios.put(`https://employee-one-coral.vercel.app/api/payment/updatestatusOfPayment/${employeeId}`, {
+            const response = await axios.put(`https://server-wheat-xi.vercel.app/api/payment/updatestatusOfPayment/${employeeId}`, {
                 employeeId,
                 amount,
                 month,

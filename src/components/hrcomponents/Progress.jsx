@@ -14,7 +14,7 @@ const ProgressComponent = () => {
     const [recordsPerPage] = useState(5); 
 
     useEffect(() => {
-        axios.get('https://employee-one-coral.vercel.app/api/work/work-records')
+        axios.get('https://server-wheat-xi.vercel.app/api/work/work-records')
             .then((response) => {
                 const works = response.data?.works || [];
                 const users = response.data?.users || [];

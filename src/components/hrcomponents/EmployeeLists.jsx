@@ -29,7 +29,7 @@ const EmployeeList = () => {
  
   const fetchEmployees = async () => {
     try {
-           const response = await axios.get('https://employee-one-coral.vercel.app/api/user/userList', {
+           const response = await axios.get('https://server-wheat-xi.vercel.app/api/user/userList', {
         params: { page, limit },
         withCredentials: true,
       });
@@ -44,7 +44,7 @@ const EmployeeList = () => {
 
 
   const toggleVerification = async (id) => {
-    const data = await axios.put(`https://employee-one-coral.vercel.app/api/user/verifiyemployee/${id}`, { withCredentials: true });
+    const data = await axios.put(`https://server-wheat-xi.vercel.app/api/user/verifiyemployee/${id}`, { withCredentials: true });
     toast.success(data?.data.message);
     fetchEmployees();
   };
@@ -59,7 +59,7 @@ const EmployeeList = () => {
     const { month, year, } = paymentInfo
     try {
 
-      const data = await axios.post(`https://employee-one-coral.vercel.app/api/payment/createpay/${selectedEmployee._id}`, { month, year, amount: salary }, { withCredentials: true });
+      const data = await axios.post(`https://server-wheat-xi.vercel.app/api/payment/createpay/${selectedEmployee._id}`, { month, year, amount: salary }, { withCredentials: true });
       console.log(data)
       setModalIsOpen(false);
       fetchEmployees();
@@ -79,7 +79,7 @@ const EmployeeList = () => {
 const sendMoney=async()=>{
   try {
 
-    const response = await axios.post('https://employee-one-coral.vercel.app/api/stripe/create', {
+    const response = await axios.post('https://server-wheat-xi.vercel.app/api/stripe/create', {
       amount,
       tokenId: stripeToken.id,
     });
@@ -238,7 +238,7 @@ export default EmployeeList;
 // const onToken = async (token) => {
 //   try {
 
-//     const response = await axios.post('http://localhost:7000/api/stripe/create', {
+//     const response = await axios.post('https://server-wheat-xi.vercel.app/api/stripe/create', {
 //       amount: 100,
 //       tokenId: token.id,
 //     });

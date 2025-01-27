@@ -13,7 +13,7 @@ const Reports = () => {
             try {
             setTimeout(async() => {
                 setLoading(false)
-                const response = await axios.get("https://employee-one-coral.vercel.app/api/message/messages", { withCredentials: true });
+                const response = await axios.get("https://server-wheat-xi.vercel.app/api/message/messages", { withCredentials: true });
                 setReports(response.data);
                 setLoading(false);
                 console.log(response.data)

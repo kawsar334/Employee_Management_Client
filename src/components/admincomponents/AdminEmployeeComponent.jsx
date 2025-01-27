@@ -22,7 +22,7 @@ const AdminEmployeeListComponent = () => {
         try {
             setTimeout(async() => {
                 setLoading(false)
-                const response = await axios.get('https://employee-one-coral.vercel.app/api/user/all-employee-list', { withCredentials: true });
+                const response = await axios.get('https://server-wheat-xi.vercel.app/api/user/all-employee-list', { withCredentials: true });
                 setEmployees(response.data.employees);
                 console.log(response.data.employees[0])
             }, 1000);
@@ -38,7 +38,7 @@ const AdminEmployeeListComponent = () => {
     // fire or block user 
     const fireEmployee = async (id) => {
         try {
-          const data =  await axios.put(`https://employee-one-coral.vercel.app/api/user/fired/${id}`, {}, { withCredentials: true });
+          const data =  await axios.put(`https://server-wheat-xi.vercel.app/api/user/fired/${id}`, {}, { withCredentials: true });
             setEmployees(employees.filter(emp => emp._id !== id));
             toast.success(data.data?.message);
             fetchEmployees();
@@ -51,7 +51,7 @@ const AdminEmployeeListComponent = () => {
     const unfireEmployee = async (item) => {
         try {
             if(window.confirm("Are you sure want to Unblock")){
-                const data = await axios.put(`https://employee-one-coral.vercel.app/api/user/unfired/${item._id}`, {}, { withCredentials: true });
+                const data = await axios.put(`https://server-wheat-xi.vercel.app/api/user/unfired/${item._id}`, {}, { withCredentials: true });
                 // setEmployees(employees.filter(emp => emp._id !== id));
                 toast.success(data.data?.message);
                 if(data){
@@ -72,7 +72,7 @@ const AdminEmployeeListComponent = () => {
 
            setTimeout(async() => {
             setLoading(false)
-               const data = await axios.put(`https://employee-one-coral.vercel.app/api/user/make-hr/${id}`, {}, { withCredentials: true });
+               const data = await axios.put(`https://server-wheat-xi.vercel.app/api/user/make-hr/${id}`, {}, { withCredentials: true });
                // setEmployees(employees.map(emp => emp._id === id ? { ...emp, isHR: true } : emp));
                toast.success(data?.data?.message)
                fetchEmployees();
@@ -99,7 +99,7 @@ const AdminEmployeeListComponent = () => {
             try {
                 setTimeout(async () => {
                     setLoading(false)
-                    await axios.put(`https://employee-one-coral.vercel.app/api/user/adjust-salary/${item?._id}`, { salary: newSalary }, { withCredentials: true });
+                    await axios.put(`https://server-wheat-xi.vercel.app/api/user/adjust-salary/${item?._id}`, { salary: newSalary }, { withCredentials: true });
                     setEmployees(employees.map(emp => emp._id === item._id ? { ...emp, salary: newSalary } : emp));
                     toast.success("Salary updated successfully");
                     setNewSalary("")

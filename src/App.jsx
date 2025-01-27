@@ -54,7 +54,10 @@ function App() {
         {
           path: "/profile",
           element: (
-            <Profile />
+            <ProtectedRoute>
+              <Profile />
+            </ProtectedRoute>
+
           ),
         },
         // for admin

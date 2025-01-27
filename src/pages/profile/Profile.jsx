@@ -10,7 +10,7 @@ const ProfilePage = () => {
     useEffect(() => {
         const fetchProfile = async () => {
             try {
-                const response = await axios.get("https://employee-one-coral.vercel.app/api/user/find/",{
+                const response = await axios.get("https://server-wheat-xi.vercel.app/api/user/find/",{
                     withCredentials:true
                 });
                 // photoURL

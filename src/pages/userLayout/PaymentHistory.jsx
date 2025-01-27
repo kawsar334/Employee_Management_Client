@@ -14,7 +14,7 @@ const PaymentHistory = () => {
     const fetchPayments = async (page = 1) => {
         try {
             const response = await axios.get(
-                `https://employee-one-coral.vercel.app/api/payment/getPaymentHistory?page=${page}&limit=5`,
+                `https://server-wheat-xi.vercel.app/api/payment/getPaymentHistory?page=${page}&limit=5`,
                 { withCredentials: true }
             );
             const { payments: fetchedPayments, currentPage, totalPages } = response.data;

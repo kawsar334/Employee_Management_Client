@@ -13,13 +13,13 @@ const ProtectedRoute = ({ children }) => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch(`https://employee-one-coral.vercel.app/api/auth/jwt`, {
+                const response = await fetch(`https://server-wheat-xi.vercel.app/api/auth/jwt`, {
                     method: "GET",
                     credentials: "include",
                 });
                 const result = await response.json();
                 setUserInfo(result?.success);
-               
+                
                 if(!result?.success){
                     toast.error(result?.message);
                 }

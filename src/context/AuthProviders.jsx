@@ -52,7 +52,7 @@ const AuthProviders = ({ children }) => {
       };
 
       try {
-        const response = await fetch("https://employee-one-coral.vercel.app/api/auth/register", {
+        const response = await fetch("https://server-wheat-xi.vercel.app/api/auth/register", {
           method: "post" ,
           headers: {
             "Content-Type": "application/json",
@@ -118,7 +118,7 @@ const AuthProviders = ({ children }) => {
 
     if (result.isConfirmed) {
       try {
-        const response = await fetch(`https://employee-one-coral.vercel.app/api/auth/logout`, {
+        const response = await fetch(`https://server-wheat-xi.vercel.app/api/auth/logout`, {
           method: "POST",
           credentials: "include",
         });
@@ -157,21 +157,21 @@ const AuthProviders = ({ children }) => {
         photoURL: user?.photoURL,
         lastSignInTime
       };
-      const response = await fetch("https://employee-one-coral.vercel.app/api/auth/google", {
+      // https://server-wheat-xi.vercel.app/api/auth/google
+      const response = await fetch("https://server-wheat-xi.vercel.app/api/auth/google", {
         method: "post",
         headers: {
           "Content-Type": "application/json",
-          
-          
         },
         body: JSON.stringify(userData),
-        credentials: "include",
+        //  credentials: "include",
+          credentials: "include",
       });
 
       const data = await response.json()
-      console.log(data)
+      console.log(data.message)
       if (response.ok) {
-        Swal.fire("Login successful");
+        Swal.fire(data.message || "Login successful");
         setUser(user)
         navigate("/dashboard");
         window.location.reload();

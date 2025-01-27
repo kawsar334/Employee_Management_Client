@@ -20,13 +20,13 @@ const Navbar = () => {
           <NavLink to="/" className="text-lg hover:text-gray-300">Home</NavLink>
           <NavLink to="/contact" className="text-lg hover:text-gray-300">Contact</NavLink>
 
-          {userRole === 'admin' && (
+          {/* {userRole === 'admin' && (
             <NavLink to="/dashboard" className="text-lg hover:text-gray-300">Dashboard</NavLink>
           )}
           {user&&<NavLink to="/profile" className="text-white capitalize font-semibold cursor-pointer hover:text-blue-500">{user?.displayName}</NavLink>}
           {userRole === 'hr' && (
             <NavLink to="/dashboard" className="text-lg hover:text-gray-300">Dashboard</NavLink>
-          )}
+          )} */}
           {userRole === 'employee' && user && (
             <NavLink to="/dashboard" className="text-lg hover:text-gray-300">Dashboard</NavLink>
           )}
@@ -62,7 +62,7 @@ const Navbar = () => {
         <h1 className="text-xl font-bold text-gray-700 mb-6 capitalize"> <i className="fas fa-tasks text-green-500 mr-2 hidden"></i> {user?.displayName}</h1>
         {userRole === 'admin' && (
           <div className="flex flex-col gap-4">
-            <NavLink     onClick={()=>setOpenMenu(!openMenu)} to="/dashboard" className="text-lg hover:text-blue-600"><span className='text-text'>-</span> Admin Dashboard</NavLink>
+            {/* <NavLink     onClick={()=>setOpenMenu(!openMenu)} to="/dashboard" className="text-lg hover:text-blue-600"><span className='text-text'>-</span> Admin Dashboard</NavLink> */}
             <NavLink     onClick={()=>setOpenMenu(!openMenu)} to="/all-employee-list" className="text-lg hover:text-blue-600"><span className='text-text'>-</span> Employee list</NavLink>
             <NavLink     onClick={()=>setOpenMenu(!openMenu)} to="/payroll" className="text-lg hover:text-blue-600"><span className='text-text'>-</span> User Management</NavLink>
             <NavLink     onClick={()=>setOpenMenu(!openMenu)} to="/admin/reports" className="text-lg hover:text-blue-600">
@@ -73,7 +73,7 @@ const Navbar = () => {
         )}
         {userRole === 'hr' && (
           <div className="flex flex-col gap-4 mt-6">
-            <NavLink     onClick={()=>setOpenMenu(!openMenu)} to="/dashboard" className="text-lg hover:text-blue-600"><span className='text-text'>-</span> Dashboard</NavLink>
+            {/* <NavLink     onClick={()=>setOpenMenu(!openMenu)} to="/dashboard" className="text-lg hover:text-blue-600"><span className='text-text'>-</span> Dashboard</NavLink> */}
             <NavLink     onClick={()=>setOpenMenu(!openMenu)} to="/employeelist" className="text-lg hover:text-blue-600"><span className='text-text'>-</span> Employee</NavLink>
             <NavLink     onClick={()=>setOpenMenu(!openMenu)} to="/analytics" className="text-lg hover:text-blue-600"><span className='text-text'>-</span> Progress</NavLink>
           </div>

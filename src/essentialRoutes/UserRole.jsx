@@ -8,7 +8,7 @@ const UserRole = () => {
   useEffect(() => {
     const fetchUserRole = async () => {
       try {
-          const response = await axios.get('https://employee-one-coral.vercel.app/api/auth/jwt', {
+          const response = await axios.get('https://server-wheat-xi.vercel.app/api/auth/jwt', {
           withCredentials: true, 
         });
           setUserRole(response.data?.user?.role);

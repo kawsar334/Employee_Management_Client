@@ -15,7 +15,7 @@ const Sidebar = () => {
     useEffect(() => {
         const fetchUserRole = async () => {
             try {
-                const response = await axios.get('https://employee-one-coral.vercel.app/api/auth/jwt', {
+                const response = await axios.get('https://server-wheat-xi.vercel.app/api/auth/jwt', {
                     withCredentials: true,
                 });
                 setUserId(response.data?.user.id);
@@ -29,7 +29,7 @@ const Sidebar = () => {
     useEffect(() => {
         const fetchReports = async () => {
             try {
-                const response = await axios.get("https://employee-one-coral.vercel.app/api/message/messages", { withCredentials: true });
+                const response = await axios.get("https://server-wheat-xi.vercel.app/api/message/messages", { withCredentials: true });
                 setMessage(response.data);
             } catch (error) {
                 console.error("Error fetching reports:", error);

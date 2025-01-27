@@ -16,7 +16,7 @@ const Home = ({ user }) => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await fetch('https://employee-one-coral.vercel.app/api/user/userList', {
+        const response = await fetch('https://server-wheat-xi.vercel.app/api/user/userList', {
           method: 'GET', 
           credentials: 'include',
           headers: {
@@ -38,7 +38,6 @@ const Home = ({ user }) => {
     // getData();
   }, []);
 
-  const role = "admin"
   return (
     <div>
       <Banner/>
